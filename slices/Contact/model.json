@@ -1,0 +1,292 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "description": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label_en": {
+          "type": "Text",
+          "config": {
+            "label": "Label EN",
+            "placeholder": ""
+          }
+        },
+        "label_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Label PT",
+            "placeholder": ""
+          }
+        },
+        "title_a_en": {
+          "type": "Text",
+          "config": {
+            "label": "Title A EN",
+            "placeholder": ""
+          }
+        },
+        "title_a_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Title A PT",
+            "placeholder": ""
+          }
+        },
+        "title_b_en": {
+          "type": "Text",
+          "config": {
+            "label": "Title B EN",
+            "placeholder": ""
+          }
+        },
+        "title_b_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Title B PT",
+            "placeholder": ""
+          }
+        },
+        "blurb_en": {
+          "type": "Text",
+          "config": {
+            "label": "Blurb EN",
+            "placeholder": ""
+          }
+        },
+        "blurb_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Blurb PT",
+            "placeholder": ""
+          }
+        },
+        "detail_email": {
+          "type": "Text",
+          "config": {
+            "label": "Detail Email",
+            "placeholder": ""
+          }
+        },
+        "detail_hours_en": {
+          "type": "Text",
+          "config": {
+            "label": "Detail Hours EN",
+            "placeholder": ""
+          }
+        },
+        "detail_hours_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Detail Hours PT",
+            "placeholder": ""
+          }
+        },
+        "detail_location": {
+          "type": "Text",
+          "config": {
+            "label": "Detail Location",
+            "placeholder": ""
+          }
+        },
+        "label_name_en": {
+          "type": "Text",
+          "config": {
+            "label": "Label Name EN",
+            "placeholder": ""
+          }
+        },
+        "label_name_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Label Name PT",
+            "placeholder": ""
+          }
+        },
+        "label_email": {
+          "type": "Text",
+          "config": {
+            "label": "Label Email",
+            "placeholder": ""
+          }
+        },
+        "label_message_en": {
+          "type": "Text",
+          "config": {
+            "label": "Label Message EN",
+            "placeholder": ""
+          }
+        },
+        "label_message_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Label Message PT",
+            "placeholder": ""
+          }
+        },
+        "placeholder_name": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder Name",
+            "placeholder": ""
+          }
+        },
+        "placeholder_email": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder Email",
+            "placeholder": ""
+          }
+        },
+        "placeholder_message_en": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder Message EN",
+            "placeholder": ""
+          }
+        },
+        "placeholder_message_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder Message PT",
+            "placeholder": ""
+          }
+        },
+        "submit_en": {
+          "type": "Text",
+          "config": {
+            "label": "Submit EN",
+            "placeholder": ""
+          }
+        },
+        "submit_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Submit PT",
+            "placeholder": ""
+          }
+        },
+        "sending_en": {
+          "type": "Text",
+          "config": {
+            "label": "Sending EN",
+            "placeholder": ""
+          }
+        },
+        "sending_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Sending PT",
+            "placeholder": ""
+          }
+        },
+        "sent_en": {
+          "type": "Text",
+          "config": {
+            "label": "Sent EN",
+            "placeholder": ""
+          }
+        },
+        "sent_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Sent PT",
+            "placeholder": ""
+          }
+        },
+        "error_name_en": {
+          "type": "Text",
+          "config": {
+            "label": "Error Name EN",
+            "placeholder": ""
+          }
+        },
+        "error_name_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Error Name PT",
+            "placeholder": ""
+          }
+        },
+        "error_email_required_en": {
+          "type": "Text",
+          "config": {
+            "label": "Error Email Required EN",
+            "placeholder": ""
+          }
+        },
+        "error_email_required_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Error Email Required PT",
+            "placeholder": ""
+          }
+        },
+        "error_email_invalid_en": {
+          "type": "Text",
+          "config": {
+            "label": "Error Email Invalid EN",
+            "placeholder": ""
+          }
+        },
+        "error_email_invalid_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Error Email Invalid PT",
+            "placeholder": ""
+          }
+        },
+        "error_message_en": {
+          "type": "Text",
+          "config": {
+            "label": "Error Message EN",
+            "placeholder": ""
+          }
+        },
+        "error_message_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Error Message PT",
+            "placeholder": ""
+          }
+        },
+        "error_network_en": {
+          "type": "Text",
+          "config": {
+            "label": "Error Network EN",
+            "placeholder": ""
+          }
+        },
+        "error_network_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Error Network PT",
+            "placeholder": ""
+          }
+        },
+        "required_en": {
+          "type": "Text",
+          "config": {
+            "label": "Required EN",
+            "placeholder": ""
+          }
+        },
+        "required_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Required PT",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,42 +1,42 @@
-"use client"
+"use client";
 
-import { useReveal } from "@/hooks/useReveal"
-import type { Lang } from "@/lib/i18n"
+import type { Lang } from "@/lib/i18n";
+import { useReveal } from "@/hooks/useReveal";
 
 interface AboutPrimary {
-  label_en: string
-  label_pt: string
-  quote_mark: string
-  quote_en: string
-  quote_pt: string
-  p1_en: string
-  p1_pt: string
-  p2_en: string
-  p2_pt: string
+  label_en: string;
+  label_pt: string;
+  quote_mark: string;
+  quote_en: string;
+  quote_pt: string;
+  p1_en: string;
+  p1_pt: string;
+  p2_en: string;
+  p2_pt: string;
 }
 
 interface MetaItem {
-  key_en: string
-  key_pt: string
-  value_en: string
-  value_pt: string
+  key_en: string;
+  key_pt: string;
+  value_en: string;
+  value_pt: string;
 }
 
 interface Props {
-  primary: AboutPrimary
-  items: MetaItem[]
-  lang: Lang
+  primary: AboutPrimary;
+  items: MetaItem[];
+  lang: Lang;
 }
 
 export function AboutSlice({ primary, items, lang }: Props) {
-  useReveal()
+  useReveal();
 
   const t = {
     label: lang === "en" ? primary.label_en : primary.label_pt,
     quote: lang === "en" ? primary.quote_en : primary.quote_pt,
     p1: lang === "en" ? primary.p1_en : primary.p1_pt,
     p2: lang === "en" ? primary.p2_en : primary.p2_pt,
-  }
+  };
 
   return (
     <section className="about frame" id="about">
@@ -75,5 +75,5 @@ export function AboutSlice({ primary, items, lang }: Props) {
         </dl>
       </div>
     </section>
-  )
+  );
 }

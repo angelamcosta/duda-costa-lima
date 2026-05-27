@@ -1,0 +1,40 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "copy": {
+          "type": "Text",
+          "config": {
+            "label": "Copy",
+            "placeholder": ""
+          }
+        },
+        "legal": {
+          "type": "Text",
+          "config": {
+            "label": "Legal",
+            "placeholder": ""
+          }
+        },
+        "built": {
+          "type": "Text",
+          "config": {
+            "label": "Built",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

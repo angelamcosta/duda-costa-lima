@@ -1,0 +1,68 @@
+{
+  "id": "header",
+  "type": "SharedSlice",
+  "name": "Header",
+  "description": "Header",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "brand_mark": {
+          "type": "Text",
+          "config": {
+            "label": "Brand Mark",
+            "placeholder": ""
+          }
+        },
+        "nav_about_en": {
+          "type": "Text",
+          "config": {
+            "label": "Nav About EN",
+            "placeholder": ""
+          }
+        },
+        "nav_about_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Nav About PT",
+            "placeholder": ""
+          }
+        },
+        "nav_services_en": {
+          "type": "Text",
+          "config": {
+            "label": "Nav Services EN",
+            "placeholder": ""
+          }
+        },
+        "nav_services_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Nav Services PT",
+            "placeholder": ""
+          }
+        },
+        "nav_contact_en": {
+          "type": "Text",
+          "config": {
+            "label": "Nav Contact EN",
+            "placeholder": ""
+          }
+        },
+        "nav_contact_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Nav Contact PT",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

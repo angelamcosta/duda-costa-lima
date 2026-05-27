@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"copy": {
+				"__TYPE__": "FieldContent",
+				"value": "answer",
+				"type": "Text"
+			},
+			"legal": {
+				"__TYPE__": "FieldContent",
+				"value": "select",
+				"type": "Text"
+			},
+			"built": {
+				"__TYPE__": "FieldContent",
+				"value": "connected",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

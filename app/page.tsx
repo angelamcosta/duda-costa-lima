@@ -1,27 +1,27 @@
-import { createClient } from "@/prismicio"
-import { getLang } from "@/lib/i18n"
-import { HeaderSlice } from "@/slices/HeaderSlice"
-import { HeroSlice } from "@/slices/HeroSlice"
-import { AboutSlice } from "@/slices/AboutSlice"
-import { ServicesSlice } from "@/slices/ServicesSlice"
-import { ContactSlice } from "@/slices/ContactSlice"
-import { FooterSlice } from "@/slices/FooterSlice"
+import { getLang } from "@/lib/i18n";
+import { createClient } from "@/prismicio";
+import { HeroSlice } from "@/slices/HeroSlice";
+import { AboutSlice } from "@/slices/AboutSlice";
+import { FooterSlice } from "@/slices/FooterSlice";
+import { HeaderSlice } from "@/slices/HeaderSlice";
+import { ContactSlice } from "@/slices/ContactSlice";
+import { ServicesSlice } from "@/slices/ServicesSlice";
 
-export const dynamic = "force-static"
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const lang = await getLang()
-  const client = createClient()
-  const page = await client.getSingle("homepage")
+  const lang = await getLang();
+  const client = createClient();
+  const page = await client.getSingle("homepage");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const slices: any[] = page.data.slices
+  const slices: any[] = page.data.slices;
 
-  const header = slices.find((s) => s.slice_type === "header_slice")
-  const hero = slices.find((s) => s.slice_type === "hero_slice")
-  const about = slices.find((s) => s.slice_type === "about_slice")
-  const services = slices.find((s) => s.slice_type === "services_slice")
-  const contact = slices.find((s) => s.slice_type === "contact_slice")
-  const footer = slices.find((s) => s.slice_type === "footer_slice")
+  const header = slices.find((s) => s.slice_type === "header");
+  const hero = slices.find((s) => s.slice_type === "hero");
+  const about = slices.find((s) => s.slice_type === "about");
+  const services = slices.find((s) => s.slice_type === "services");
+  const contact = slices.find((s) => s.slice_type === "contact");
+  const footer = slices.find((s) => s.slice_type === "footer");
 
   return (
     <>
@@ -31,14 +31,14 @@ export default async function Home() {
         {about && (
           <AboutSlice
             primary={about.primary}
-            items={about.items ?? []}
+            items={about.primary.key_text ?? []}
             lang={lang}
           />
         )}
         {services && (
           <ServicesSlice
             primary={services.primary}
-            items={services.items ?? []}
+            items={services.primary.key_text ?? []}
             lang={lang}
           />
         )}
@@ -46,5 +46,5 @@ export default async function Home() {
       </main>
       {footer && <FooterSlice primary={footer.primary} />}
     </>
-  )
+  );
 }

@@ -1,0 +1,96 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "meta_top_en": {
+          "type": "Text",
+          "config": {
+            "label": "Meta Top EN",
+            "placeholder": ""
+          }
+        },
+        "meta_top_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Meta Top PT",
+            "placeholder": ""
+          }
+        },
+        "name_a": {
+          "type": "Text",
+          "config": {
+            "label": "Name A",
+            "placeholder": ""
+          }
+        },
+        "name_b": {
+          "type": "Text",
+          "config": {
+            "label": "Name B",
+            "placeholder": ""
+          }
+        },
+        "tag_en": {
+          "type": "Text",
+          "config": {
+            "label": "Tag EN",
+            "placeholder": ""
+          }
+        },
+        "tag_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Tag PT",
+            "placeholder": ""
+          }
+        },
+        "scroll_en": {
+          "type": "Text",
+          "config": {
+            "label": "Scroll EN",
+            "placeholder": ""
+          }
+        },
+        "scroll_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Scroll PT",
+            "placeholder": ""
+          }
+        },
+        "index_l_en": {
+          "type": "Text",
+          "config": {
+            "label": "Index L EN",
+            "placeholder": ""
+          }
+        },
+        "index_l_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Index L PT",
+            "placeholder": ""
+          }
+        },
+        "index_r": {
+          "type": "Text",
+          "config": {
+            "label": "Index R",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useMouseEffects } from "@/hooks/useMouseEffects"
+import { useMouseEffects } from "@/hooks/useMouseEffects";
 
 export function MouseEffectsProvider({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  useMouseEffects()
-  return <>{children}</>
+  useMouseEffects();
+  return <>{children}</>;
 }

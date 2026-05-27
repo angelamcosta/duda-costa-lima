@@ -1,0 +1,140 @@
+{
+  "id": "services",
+  "type": "SharedSlice",
+  "name": "Services",
+  "description": "Services",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label_en": {
+          "type": "Text",
+          "config": {
+            "label": "Label EN",
+            "placeholder": ""
+          }
+        },
+        "label_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Label PT",
+            "placeholder": ""
+          }
+        },
+        "title_en": {
+          "type": "Text",
+          "config": {
+            "label": "Title EN",
+            "placeholder": ""
+          }
+        },
+        "title_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Title PT",
+            "placeholder": ""
+          }
+        },
+        "count_en": {
+          "type": "Text",
+          "config": {
+            "label": "Count EN",
+            "placeholder": ""
+          }
+        },
+        "count_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Count PT",
+            "placeholder": ""
+          }
+        },
+        "key_text": {
+          "type": "Group",
+          "config": {
+            "label": "Key Text",
+            "repeat": true,
+            "fields": {
+              "name_a_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Name A EN",
+                  "placeholder": ""
+                }
+              },
+              "name_a_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Name A PT",
+                  "placeholder": ""
+                }
+              },
+              "name_b_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Name B EN",
+                  "placeholder": ""
+                }
+              },
+              "name_b_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Name B PT",
+                  "placeholder": ""
+                }
+              },
+              "desc_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Desc EN",
+                  "placeholder": ""
+                }
+              },
+              "desc_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Desc PT",
+                  "placeholder": ""
+                }
+              },
+              "price_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Price EN",
+                  "placeholder": ""
+                }
+              },
+              "price_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Price PT",
+                  "placeholder": ""
+                }
+              },
+              "duration_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Duration EN",
+                  "placeholder": ""
+                }
+              },
+              "duration_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Duration PT",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

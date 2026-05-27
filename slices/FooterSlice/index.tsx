@@ -1,11 +1,11 @@
 interface FooterPrimary {
-  copy: string
-  legal: string
-  built: string
+  copy: string;
+  legal: string;
+  built: string;
 }
 
 interface Props {
-  primary: FooterPrimary
+  primary: FooterPrimary;
 }
 
 export function FooterSlice({ primary }: Props) {
@@ -15,5 +15,5 @@ export function FooterSlice({ primary }: Props) {
       <span>{primary.legal}</span>
       <span>{primary.built}</span>
     </footer>
-  )
+  );
 }

@@ -1,0 +1,119 @@
+{
+  "id": "about",
+  "type": "SharedSlice",
+  "name": "About",
+  "description": "About",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label_en": {
+          "type": "Text",
+          "config": {
+            "label": "Label EN",
+            "placeholder": ""
+          }
+        },
+        "label_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Label PT",
+            "placeholder": ""
+          }
+        },
+        "quote_mark": {
+          "type": "Text",
+          "config": {
+            "label": "Quote Mark",
+            "placeholder": ""
+          }
+        },
+        "quote_en": {
+          "type": "Text",
+          "config": {
+            "label": "Quote EN",
+            "placeholder": ""
+          }
+        },
+        "quote_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Quote PT",
+            "placeholder": ""
+          }
+        },
+        "p1_en": {
+          "type": "Text",
+          "config": {
+            "label": "P1 EN",
+            "placeholder": ""
+          }
+        },
+        "p1_pt": {
+          "type": "Text",
+          "config": {
+            "label": "P1 PT",
+            "placeholder": ""
+          }
+        },
+        "p2_en": {
+          "type": "Text",
+          "config": {
+            "label": "P2 EN",
+            "placeholder": ""
+          }
+        },
+        "p2_pt": {
+          "type": "Text",
+          "config": {
+            "label": "P2 PT",
+            "placeholder": ""
+          }
+        },
+        "key_text": {
+          "type": "Group",
+          "config": {
+            "label": "Key Text",
+            "repeat": true,
+            "fields": {
+              "key_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Key EN",
+                  "placeholder": ""
+                }
+              },
+              "key_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Key PT",
+                  "placeholder": ""
+                }
+              },
+              "value_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Value EN",
+                  "placeholder": ""
+                }
+              },
+              "value_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Value PT",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import {
-  createClient as baseCreateClient,
-  type ClientConfig,
   type Route,
+  type ClientConfig,
+  createClient as baseCreateClient,
 } from "@prismicio/client";
-import { enableAutoPreviews } from "@prismicio/next";
 import sm from "./slicemachine.config.json";
+import { enableAutoPreviews } from "@prismicio/next";
 
 /**
  * The project's Prismic repository name.
@@ -17,9 +17,7 @@ export const repositoryName =
  *
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
-const routes: Route[] = [
-  { type: "homepage", path: "/" },
-];
+const routes: Route[] = [{ type: "homepage", path: "/" }];
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to

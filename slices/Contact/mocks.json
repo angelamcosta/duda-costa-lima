@@ -1,0 +1,204 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"label_en": {
+				"__TYPE__": "FieldContent",
+				"value": "plates",
+				"type": "Text"
+			},
+			"label_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "solve",
+				"type": "Text"
+			},
+			"title_a_en": {
+				"__TYPE__": "FieldContent",
+				"value": "wrong",
+				"type": "Text"
+			},
+			"title_a_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "large",
+				"type": "Text"
+			},
+			"title_b_en": {
+				"__TYPE__": "FieldContent",
+				"value": "dish",
+				"type": "Text"
+			},
+			"title_b_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "modern",
+				"type": "Text"
+			},
+			"blurb_en": {
+				"__TYPE__": "FieldContent",
+				"value": "father",
+				"type": "Text"
+			},
+			"blurb_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "gift",
+				"type": "Text"
+			},
+			"detail_email": {
+				"__TYPE__": "FieldContent",
+				"value": "wise",
+				"type": "Text"
+			},
+			"detail_hours_en": {
+				"__TYPE__": "FieldContent",
+				"value": "have",
+				"type": "Text"
+			},
+			"detail_hours_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "those",
+				"type": "Text"
+			},
+			"detail_location": {
+				"__TYPE__": "FieldContent",
+				"value": "larger",
+				"type": "Text"
+			},
+			"label_name_en": {
+				"__TYPE__": "FieldContent",
+				"value": "college",
+				"type": "Text"
+			},
+			"label_name_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "slide",
+				"type": "Text"
+			},
+			"label_message_en": {
+				"__TYPE__": "FieldContent",
+				"value": "nose",
+				"type": "Text"
+			},
+			"label_message_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "was",
+				"type": "Text"
+			},
+			"placeholder_message_en": {
+				"__TYPE__": "FieldContent",
+				"value": "buried",
+				"type": "Text"
+			},
+			"placeholder_message_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "effort",
+				"type": "Text"
+			},
+			"submit_en": {
+				"__TYPE__": "FieldContent",
+				"value": "friendly",
+				"type": "Text"
+			},
+			"submit_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "help",
+				"type": "Text"
+			},
+			"sending_en": {
+				"__TYPE__": "FieldContent",
+				"value": "gravity",
+				"type": "Text"
+			},
+			"sending_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "discover",
+				"type": "Text"
+			},
+			"sent_en": {
+				"__TYPE__": "FieldContent",
+				"value": "mice",
+				"type": "Text"
+			},
+			"sent_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "mine",
+				"type": "Text"
+			},
+			"error_name_en": {
+				"__TYPE__": "FieldContent",
+				"value": "expect",
+				"type": "Text"
+			},
+			"error_name_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "unknown",
+				"type": "Text"
+			},
+			"error_email_required_en": {
+				"__TYPE__": "FieldContent",
+				"value": "origin",
+				"type": "Text"
+			},
+			"error_email_required_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "grandmother",
+				"type": "Text"
+			},
+			"error_email_invalid_en": {
+				"__TYPE__": "FieldContent",
+				"value": "trick",
+				"type": "Text"
+			},
+			"error_email_invalid_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "uncle",
+				"type": "Text"
+			},
+			"error_message_en": {
+				"__TYPE__": "FieldContent",
+				"value": "draw",
+				"type": "Text"
+			},
+			"error_message_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "did",
+				"type": "Text"
+			},
+			"error_network_en": {
+				"__TYPE__": "FieldContent",
+				"value": "wash",
+				"type": "Text"
+			},
+			"error_network_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "saddle",
+				"type": "Text"
+			},
+			"required_en": {
+				"__TYPE__": "FieldContent",
+				"value": "vast",
+				"type": "Text"
+			},
+			"required_pt": {
+				"__TYPE__": "FieldContent",
+				"value": "nature",
+				"type": "Text"
+			},
+			"label_email": {
+				"__TYPE__": "FieldContent",
+				"value": "floating",
+				"type": "Text"
+			},
+			"placeholder_name": {
+				"__TYPE__": "FieldContent",
+				"value": "track",
+				"type": "Text"
+			},
+			"placeholder_email": {
+				"__TYPE__": "FieldContent",
+				"value": "early",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

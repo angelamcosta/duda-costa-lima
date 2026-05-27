@@ -42,10 +42,7 @@
     "tab.inactiveBackground": "#002038",
     "tab.inactiveForeground": "#fcbf49cc",
     "terminal.background": "#002038",
-    "terminal.foreground": "#eae2b7",
-    "titleBar.activeBackground": "#002038",
-    "titleBar.inactiveBackground": "#002038",
-    "activityBar.background": "#002038",
+    "terminal.foreground": "#eae2b7"
   },
   "editor.tokenColorCustomizations": {
     "comments": "#f77f00aa",
