@@ -39,10 +39,13 @@ export function AboutSlice({ primary, items, lang }: Props) {
   };
 
   return (
-    <section className="about frame" id="about">
+    <section className="about frame" id="about" data-screen-label="About">
       <div>
         <div className="section-label reveal mb-7">◦ {t.label}</div>
-        <blockquote className="about-quote reveal">
+        <blockquote
+          className="about-quote mask-reveal"
+          style={{ "--reveal-delay": "100ms" } as React.CSSProperties}
+        >
           <span className="mark">{primary.quote_mark}</span>
           {t.quote}
         </blockquote>
@@ -65,7 +68,10 @@ export function AboutSlice({ primary, items, lang }: Props) {
           style={{ "--reveal-delay": "360ms" } as React.CSSProperties}
         >
           {items.map((m, i) => (
-            <div key={i}>
+            <div
+              key={i}
+              style={{ "--col-delay": `${i * 90}ms` } as React.CSSProperties}
+            >
               <dt>{lang === "en" ? m.key_en : m.key_pt}</dt>
               <dd>{lang === "en" ? m.value_en : m.value_pt}</dd>
             </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
 import type { Lang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
 import { HeroBackdrop } from "@/slices/HeroSlice/HeroBackdrop";
@@ -10,6 +9,7 @@ interface HeroPrimary {
   meta_top_pt: string;
   name_a: string;
   name_b: string;
+  name_c?: string;
   tag_en: string;
   tag_pt: string;
   scroll_en: string;
@@ -24,31 +24,13 @@ interface Props {
   lang: Lang;
 }
 
-function StaggerText({
-  text,
-  baseDelay = 0,
-  perChar = 28,
-}: {
-  text: string;
-  baseDelay?: number;
-  perChar?: number;
-}) {
-  const chars = useMemo(() => Array.from(text), [text]);
+function WordReveal({ text, delay = 0 }: { text: string; delay?: number }) {
   return (
-    <span aria-label={text}>
-      {chars.map((c, i) => (
-        <span
-          key={i}
-          className="stagger-char repel"
-          style={
-            {
-              "--char-delay": `${baseDelay + i * perChar}ms`,
-            } as React.CSSProperties
-          }
-        >
-          {c === " " ? " " : c}
-        </span>
-      ))}
+    <span
+      className="word-reveal"
+      style={{ "--word-delay": `${delay}ms` } as React.CSSProperties}
+    >
+      <span>{text}</span>
     </span>
   );
 }
@@ -63,25 +45,41 @@ export function HeroSlice({ primary, lang }: Props) {
     index_l: lang === "en" ? primary.index_l_en : primary.index_l_pt,
   };
 
+  const nameLine1A = primary.name_a;
+  const nameLine1B = primary.name_c ? primary.name_b : "";
+  const nameLine2 = primary.name_c ?? primary.name_b;
+
   return (
-    <section className="hero frame" id="hero">
+    <section className="hero frame" id="hero" data-screen-label="Hero">
       <HeroBackdrop />
+
       <div className="hero-meta mono reveal">
         <span>{t.meta_top}</span>
       </div>
+
       <h1
-        className="hero-name"
-        aria-label={`${primary.name_a} ${primary.name_b}`}
+        className="hero-name reveal"
+        aria-label={`${nameLine1A}${nameLine1B ? ` ${nameLine1B}` : ""} ${nameLine2}`}
       >
         <span className="row">
-          <StaggerText text={primary.name_a} baseDelay={120} perChar={42} />
+          <span className="word">
+            <WordReveal text={nameLine1A} delay={120} />
+          </span>
+          {nameLine1B && (
+            <span className="word">
+              <WordReveal text={nameLine1B} delay={280} />
+            </span>
+          )}
         </span>
         <span className="row indent">
           <em>
-            <StaggerText text={primary.name_b} baseDelay={420} perChar={42} />
+            <span className="word">
+              <WordReveal text={nameLine2} delay={520} />
+            </span>
           </em>
         </span>
       </h1>
+
       <p
         className="hero-tag reveal"
         style={{ "--reveal-delay": "900ms" } as React.CSSProperties}

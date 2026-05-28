@@ -2,11 +2,10 @@
 
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useCallback, useEffect, useState } from "react";
 
 type FormValues = { name: string; email: string; message: string };
-
 type Status = "idle" | "sending" | "sent" | "error";
 
 interface ContactFormProps {
@@ -50,10 +49,14 @@ export function ContactForm({ t }: ContactFormProps) {
   const [statusText, setStatusText] = useState("");
   const [statusFading, setStatusFading] = useState(false);
 
+  const setFormStatus = useCallback((nextStatus: Status) => {
+    setStatusText("");
+    setStatusFading(false);
+    setStatus(nextStatus);
+  }, []);
+
   useEffect(() => {
     if (status === "idle") {
-      setStatusText("");
-      setStatusFading(false);
       return;
     }
     const target =
@@ -62,9 +65,6 @@ export function ContactForm({ t }: ContactFormProps) {
         : status === "sent"
           ? t.sent
           : t.err_network;
-
-    setStatusFading(false);
-    setStatusText("");
     let i = 0;
     const id = setInterval(() => {
       i += 1;
@@ -73,15 +73,15 @@ export function ContactForm({ t }: ContactFormProps) {
         clearInterval(id);
         if (status === "sent") {
           setTimeout(() => setStatusFading(true), 4200);
-          setTimeout(() => setStatus("idle"), 5400);
+          setTimeout(() => setFormStatus("idle"), 5400);
         }
       }
     }, 22);
     return () => clearInterval(id);
-  }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [setFormStatus, status, t.err_network, t.sending, t.sent]);
 
   async function onSubmit(values: FormValues) {
-    setStatus("sending");
+    setFormStatus("sending");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -95,19 +95,23 @@ export function ContactForm({ t }: ContactFormProps) {
       });
       const data = await res.json();
       if (data.success) {
-        setStatus("sent");
+        setFormStatus("sent");
         reset();
       } else {
-        setStatus("error");
+        setFormStatus("error");
       }
     } catch {
-      setStatus("error");
+      setFormStatus("error");
     }
   }
 
   return (
     <form className="form reveal" onSubmit={handleSubmit(onSubmit)} noValidate>
-      <div className={`field${errors.name ? " has-error" : ""}`} data-magnet>
+      <div
+        className={`field${errors.name ? " has-error" : ""}`}
+        data-magnet
+        style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
+      >
         <label>
           {t.label_name} <span className="req">{t.req}</span>
         </label>
@@ -123,7 +127,11 @@ export function ContactForm({ t }: ContactFormProps) {
         )}
       </div>
 
-      <div className={`field${errors.email ? " has-error" : ""}`} data-magnet>
+      <div
+        className={`field${errors.email ? " has-error" : ""}`}
+        data-magnet
+        style={{ "--reveal-delay": "200ms" } as React.CSSProperties}
+      >
         <label>
           {t.label_email} <span className="req">{t.req}</span>
         </label>
@@ -139,7 +147,11 @@ export function ContactForm({ t }: ContactFormProps) {
         )}
       </div>
 
-      <div className={`field${errors.message ? " has-error" : ""}`} data-magnet>
+      <div
+        className={`field${errors.message ? " has-error" : ""}`}
+        data-magnet
+        style={{ "--reveal-delay": "320ms" } as React.CSSProperties}
+      >
         <label>
           {t.label_message} <span className="req">{t.req}</span>
         </label>

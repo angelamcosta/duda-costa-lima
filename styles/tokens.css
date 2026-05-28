@@ -7,26 +7,39 @@
 }
 
 :root {
-  --color-bg: #eae2b7;
-  --color-surface: #f2ebcc;
-  --color-border: #c9be85;
-  --color-text: #003049;
-  --color-muted: #4a6273;
-  --color-accent: #003049;
-  --color-accent-fg: #eae2b7;
-  --color-warm: #d62828;
-  --color-warm-soft: #f77f00;
-  --color-deep: #fcbf49;
+  --color-bg: #eef1f4;
+  --color-surface: #ffffff;
+  --color-border: #c3cad3;
+  --color-text: #0c1530;
+  --color-muted: #5e6878;
+  --color-accent: #0c1530;
+  --color-accent-fg: #eef1f4;
+  --color-warm: #e6005c;
+  --color-warm-soft: #1c5ed8;
+  --color-deep: #f5d916;
 
-  --color-bg-rgb: 234, 226, 183;
-  --color-text-rgb: 0, 48, 73;
-  --color-warm-rgb: 214, 40, 40;
-  --color-warm-soft-rgb: 247, 127, 0;
-  --color-deep-rgb: 252, 191, 73;
+  --color-bg-rgb: 238, 241, 244;
+  --color-text-rgb: 12, 21, 48;
+  --color-warm-rgb: 230, 0, 92;
+  --color-warm-soft-rgb: 28, 94, 216;
+  --color-deep-rgb: 245, 217, 22;
 
   --ease-overdamp: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-commit: cubic-bezier(0.7, 0, 0.2, 1);
   --ease-editorial: cubic-bezier(0.2, 0.7, 0.1, 1);
+
+  --header-h: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 84px;
+  }
 }
 
 *,

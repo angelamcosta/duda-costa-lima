@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 import { MouseEffectsProvider } from "@/components/MouseEffectsProvider";
 
@@ -29,6 +29,16 @@ export const metadata: Metadata = {
   title: "Duda Costa Lima — Image & Style Consultant",
   description:
     "An image and style consultancy for people whose presence already speaks.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#eae2b7",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

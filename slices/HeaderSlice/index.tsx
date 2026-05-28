@@ -2,6 +2,7 @@
 
 import type { Lang } from "@/lib/i18n";
 import { useRouter } from "next/navigation";
+import { useHeaderScroll } from "@/hooks/useHeaderScroll";
 
 interface HeaderPrimary {
   brand_mark: string;
@@ -20,6 +21,7 @@ interface Props {
 
 export function HeaderSlice({ primary, lang }: Props) {
   const router = useRouter();
+  useHeaderScroll();
 
   function setLang(l: Lang) {
     document.cookie = `me_lang=${l}; path=/; max-age=31536000; SameSite=Lax`;
@@ -34,7 +36,10 @@ export function HeaderSlice({ primary, lang }: Props) {
 
   return (
     <header className="topbar">
-      <div className="mark mono">{primary.brand_mark}</div>
+      <a href="#hero" className="mark mono" aria-label="Duda Costa Lima — home">
+        <span className="mark-d">D</span>
+        <span className="mark-l">L</span>
+      </a>
       <nav>
         <a href="#about">{t.about}</a>
         <a href="#services">{t.services}</a>
@@ -49,6 +54,7 @@ export function HeaderSlice({ primary, lang }: Props) {
           PT
         </button>
       </div>
+      <span className="topbar-rule" aria-hidden="true" />
     </header>
   );
 }

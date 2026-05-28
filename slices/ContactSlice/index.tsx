@@ -51,18 +51,22 @@ interface Props {
   lang: Lang;
 }
 
+// todo : - use .env for default email
+const DEFAULT_EMAIL = "meduarda.cly@gmail.com";
+
 export function ContactSlice({ primary, lang }: Props) {
   useReveal();
 
   const p = primary;
   const en = lang === "en";
+  const email = p.detail_email?.trim() || DEFAULT_EMAIL;
 
   const t = {
     label: en ? p.label_en : p.label_pt,
     title_a: en ? p.title_a_en : p.title_a_pt,
     title_b: en ? p.title_b_en : p.title_b_pt,
     blurb: en ? p.blurb_en : p.blurb_pt,
-    detail_email: p.detail_email,
+    detail_email: email,
     detail_hours: en ? p.detail_hours_en : p.detail_hours_pt,
     label_name: en ? p.label_name_en : p.label_name_pt,
     label_email: p.label_email,
@@ -84,7 +88,7 @@ export function ContactSlice({ primary, lang }: Props) {
   };
 
   return (
-    <section className="contact frame" id="contact">
+    <section className="contact frame" id="contact" data-screen-label="Contact">
       <div className="contact-head">
         <div className="section-label reveal mb-7">◦ {t.label}</div>
         <h2 className="reveal">
