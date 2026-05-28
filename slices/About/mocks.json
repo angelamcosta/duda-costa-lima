@@ -1,96 +1,96 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"label_en": {
-				"__TYPE__": "FieldContent",
-				"value": "rising",
-				"type": "Text"
-			},
-			"label_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "felt",
-				"type": "Text"
-			},
-			"quote_mark": {
-				"__TYPE__": "FieldContent",
-				"value": "stage",
-				"type": "Text"
-			},
-			"quote_en": {
-				"__TYPE__": "FieldContent",
-				"value": "throughout",
-				"type": "Text"
-			},
-			"quote_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "turn",
-				"type": "Text"
-			},
-			"p1_en": {
-				"__TYPE__": "FieldContent",
-				"value": "comfortable",
-				"type": "Text"
-			},
-			"p1_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "blood",
-				"type": "Text"
-			},
-			"p2_en": {
-				"__TYPE__": "FieldContent",
-				"value": "industry",
-				"type": "Text"
-			},
-			"p2_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "remarkable",
-				"type": "Text"
-			},
-			"key_text": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"key_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "bet",
-									"type": "Text"
-								}
-							],
-							[
-								"key_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "not",
-									"type": "Text"
-								}
-							],
-							[
-								"value_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "circle",
-									"type": "Text"
-								}
-							],
-							[
-								"value_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "potatoes",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label_en": {
+        "__TYPE__": "FieldContent",
+        "value": "rising",
+        "type": "Text"
+      },
+      "label_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "felt",
+        "type": "Text"
+      },
+      "quote_mark": {
+        "__TYPE__": "FieldContent",
+        "value": "stage",
+        "type": "Text"
+      },
+      "quote_en": {
+        "__TYPE__": "FieldContent",
+        "value": "throughout",
+        "type": "Text"
+      },
+      "quote_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "turn",
+        "type": "Text"
+      },
+      "p1_en": {
+        "__TYPE__": "FieldContent",
+        "value": "comfortable",
+        "type": "Text"
+      },
+      "p1_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "blood",
+        "type": "Text"
+      },
+      "p2_en": {
+        "__TYPE__": "FieldContent",
+        "value": "industry",
+        "type": "Text"
+      },
+      "p2_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "remarkable",
+        "type": "Text"
+      },
+      "key_text": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "key_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "bet",
+                  "type": "Text"
+                }
+              ],
+              [
+                "key_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "not",
+                  "type": "Text"
+                }
+              ],
+              [
+                "value_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "circle",
+                  "type": "Text"
+                }
+              ],
+              [
+                "value_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "potatoes",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
 ]

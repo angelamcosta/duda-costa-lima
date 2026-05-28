@@ -61,7 +61,7 @@ export function ContactForm({ t }: ContactFormProps) {
     }
     const target =
       status === "sending"
-        ? t.sending + "…"
+        ? t.sending + "..."
         : status === "sent"
           ? t.sent
           : t.err_network;

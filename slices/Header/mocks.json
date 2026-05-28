@@ -1,44 +1,44 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"brand_mark": {
-				"__TYPE__": "FieldContent",
-				"value": "constantly",
-				"type": "Text"
-			},
-			"nav_about_en": {
-				"__TYPE__": "FieldContent",
-				"value": "uncle",
-				"type": "Text"
-			},
-			"nav_about_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "please",
-				"type": "Text"
-			},
-			"nav_services_en": {
-				"__TYPE__": "FieldContent",
-				"value": "voyage",
-				"type": "Text"
-			},
-			"nav_services_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "high",
-				"type": "Text"
-			},
-			"nav_contact_en": {
-				"__TYPE__": "FieldContent",
-				"value": "tent",
-				"type": "Text"
-			},
-			"nav_contact_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "center",
-				"type": "Text"
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "brand_mark": {
+        "__TYPE__": "FieldContent",
+        "value": "constantly",
+        "type": "Text"
+      },
+      "nav_about_en": {
+        "__TYPE__": "FieldContent",
+        "value": "uncle",
+        "type": "Text"
+      },
+      "nav_about_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "please",
+        "type": "Text"
+      },
+      "nav_services_en": {
+        "__TYPE__": "FieldContent",
+        "value": "voyage",
+        "type": "Text"
+      },
+      "nav_services_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "high",
+        "type": "Text"
+      },
+      "nav_contact_en": {
+        "__TYPE__": "FieldContent",
+        "value": "tent",
+        "type": "Text"
+      },
+      "nav_contact_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "center",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
 ]

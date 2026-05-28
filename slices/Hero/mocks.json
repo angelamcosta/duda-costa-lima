@@ -1,64 +1,64 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"meta_top_en": {
-				"__TYPE__": "FieldContent",
-				"value": "outline",
-				"type": "Text"
-			},
-			"meta_top_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "fellow",
-				"type": "Text"
-			},
-			"name_a": {
-				"__TYPE__": "FieldContent",
-				"value": "thought",
-				"type": "Text"
-			},
-			"name_b": {
-				"__TYPE__": "FieldContent",
-				"value": "blow",
-				"type": "Text"
-			},
-			"tag_en": {
-				"__TYPE__": "FieldContent",
-				"value": "lie",
-				"type": "Text"
-			},
-			"tag_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "raw",
-				"type": "Text"
-			},
-			"scroll_en": {
-				"__TYPE__": "FieldContent",
-				"value": "winter",
-				"type": "Text"
-			},
-			"scroll_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "immediately",
-				"type": "Text"
-			},
-			"index_l_en": {
-				"__TYPE__": "FieldContent",
-				"value": "swim",
-				"type": "Text"
-			},
-			"index_l_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "over",
-				"type": "Text"
-			},
-			"index_r": {
-				"__TYPE__": "FieldContent",
-				"value": "lead",
-				"type": "Text"
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "meta_top_en": {
+        "__TYPE__": "FieldContent",
+        "value": "outline",
+        "type": "Text"
+      },
+      "meta_top_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "fellow",
+        "type": "Text"
+      },
+      "name_a": {
+        "__TYPE__": "FieldContent",
+        "value": "thought",
+        "type": "Text"
+      },
+      "name_b": {
+        "__TYPE__": "FieldContent",
+        "value": "blow",
+        "type": "Text"
+      },
+      "tag_en": {
+        "__TYPE__": "FieldContent",
+        "value": "lie",
+        "type": "Text"
+      },
+      "tag_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "raw",
+        "type": "Text"
+      },
+      "scroll_en": {
+        "__TYPE__": "FieldContent",
+        "value": "winter",
+        "type": "Text"
+      },
+      "scroll_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "immediately",
+        "type": "Text"
+      },
+      "index_l_en": {
+        "__TYPE__": "FieldContent",
+        "value": "swim",
+        "type": "Text"
+      },
+      "index_l_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "over",
+        "type": "Text"
+      },
+      "index_r": {
+        "__TYPE__": "FieldContent",
+        "value": "lead",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
 ]

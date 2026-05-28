@@ -1,30 +1,32 @@
-import { FC } from "react";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+"use client";
 
-/**
- * Props for `Footer`.
- */
-export type FooterProps = SliceComponentProps<Content.FooterSlice>;
+import { useReveal } from "@/hooks/useReveal";
+import { DEFAULT_CONTACT_EMAIL } from "@/lib/contact";
 
-/**
- * Component for "Footer" Slices.
- */
-const Footer: FC<FooterProps> = ({ slice }) => {
+interface FooterPrimary {
+  copy: string;
+  legal: string;
+  built: string;
+}
+
+interface Props {
+  primary: FooterPrimary;
+}
+
+export function FooterSlice({ primary }: Props) {
+  useReveal();
+  const right = primary.built?.trim() || DEFAULT_CONTACT_EMAIL;
+  const looksLikeEmail = /@/.test(right);
+
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for footer (variation: {slice.variation}) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use your own AI agent with the Prismic CLI
-       * 📚 Docs: https://prismic.io/docs/ai#create-slices
-       */}
-    </section>
+    <footer className="footer frame" data-screen-label="Footer">
+      <span>{primary.copy}</span>
+      <span>{primary.legal}</span>
+      <span>
+        {looksLikeEmail ? <a href={`mailto:${right}`}>{right}</a> : right}
+      </span>
+    </footer>
   );
-};
+}
 
-export default Footer;
+export default FooterSlice;
