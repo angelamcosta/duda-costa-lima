@@ -224,6 +224,7 @@ export function HeroBackdrop() {
       ty = ny * 18;
       if (raf === null) raf = requestAnimationFrame(animate);
     }
+
     function onLeave() {
       wrap!.style.setProperty("--spot-on", "0");
       tx = 0;

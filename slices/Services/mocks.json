@@ -1,129 +1,129 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"label_en": {
-				"__TYPE__": "FieldContent",
-				"value": "highest",
-				"type": "Text"
-			},
-			"label_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "pound",
-				"type": "Text"
-			},
-			"title_en": {
-				"__TYPE__": "FieldContent",
-				"value": "for",
-				"type": "Text"
-			},
-			"title_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "meant",
-				"type": "Text"
-			},
-			"count_en": {
-				"__TYPE__": "FieldContent",
-				"value": "younger",
-				"type": "Text"
-			},
-			"count_pt": {
-				"__TYPE__": "FieldContent",
-				"value": "whenever",
-				"type": "Text"
-			},
-			"key_text": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"name_a_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "sang",
-									"type": "Text"
-								}
-							],
-							[
-								"name_a_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "follow",
-									"type": "Text"
-								}
-							],
-							[
-								"name_b_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "question",
-									"type": "Text"
-								}
-							],
-							[
-								"name_b_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "pride",
-									"type": "Text"
-								}
-							],
-							[
-								"desc_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "event",
-									"type": "Text"
-								}
-							],
-							[
-								"desc_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "wide",
-									"type": "Text"
-								}
-							],
-							[
-								"price_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "center",
-									"type": "Text"
-								}
-							],
-							[
-								"price_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "thousand",
-									"type": "Text"
-								}
-							],
-							[
-								"duration_en",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "lips",
-									"type": "Text"
-								}
-							],
-							[
-								"duration_pt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "so",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "label_en": {
+        "__TYPE__": "FieldContent",
+        "value": "highest",
+        "type": "Text"
+      },
+      "label_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "pound",
+        "type": "Text"
+      },
+      "title_en": {
+        "__TYPE__": "FieldContent",
+        "value": "for",
+        "type": "Text"
+      },
+      "title_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "meant",
+        "type": "Text"
+      },
+      "count_en": {
+        "__TYPE__": "FieldContent",
+        "value": "younger",
+        "type": "Text"
+      },
+      "count_pt": {
+        "__TYPE__": "FieldContent",
+        "value": "whenever",
+        "type": "Text"
+      },
+      "key_text": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "name_a_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "sang",
+                  "type": "Text"
+                }
+              ],
+              [
+                "name_a_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "follow",
+                  "type": "Text"
+                }
+              ],
+              [
+                "name_b_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "question",
+                  "type": "Text"
+                }
+              ],
+              [
+                "name_b_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "pride",
+                  "type": "Text"
+                }
+              ],
+              [
+                "desc_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "event",
+                  "type": "Text"
+                }
+              ],
+              [
+                "desc_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "wide",
+                  "type": "Text"
+                }
+              ],
+              [
+                "price_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "center",
+                  "type": "Text"
+                }
+              ],
+              [
+                "price_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "thousand",
+                  "type": "Text"
+                }
+              ],
+              [
+                "duration_en",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "lips",
+                  "type": "Text"
+                }
+              ],
+              [
+                "duration_pt",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "so",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
 ]

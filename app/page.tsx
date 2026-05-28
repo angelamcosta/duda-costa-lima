@@ -1,13 +1,13 @@
 import { getLang } from "@/lib/i18n";
+import { HeroSlice } from "@/slices/Hero";
 import { createClient } from "@/prismicio";
 import type { ComponentProps } from "react";
-import { HeroSlice } from "@/slices/HeroSlice";
+import { AboutSlice } from "@/slices/About";
+import { FooterSlice } from "@/slices/Footer";
+import { HeaderSlice } from "@/slices/Header";
+import { ContactSlice } from "@/slices/Contact";
 import type { Content } from "@prismicio/client";
-import { AboutSlice } from "@/slices/AboutSlice";
-import { FooterSlice } from "@/slices/FooterSlice";
-import { HeaderSlice } from "@/slices/HeaderSlice";
-import { ContactSlice } from "@/slices/ContactSlice";
-import { ServicesSlice } from "@/slices/ServicesSlice";
+import { ServicesSlice } from "@/slices/Services";
 
 export const dynamic = "force-dynamic";
 
