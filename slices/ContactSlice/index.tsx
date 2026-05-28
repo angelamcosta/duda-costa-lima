@@ -1,11 +1,8 @@
 "use client";
 
-import { z } from "zod";
 import type { Lang } from "@/lib/i18n";
-import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { ContactForm } from "@/slices/ContactSlice/ContactForm";
 
 interface ContactPrimary {
   label_en: string;
@@ -54,10 +51,6 @@ interface Props {
   lang: Lang;
 }
 
-type FormValues = { name: string; email: string; message: string };
-
-type Status = "idle" | "sending" | "sent" | "error";
-
 export function ContactSlice({ primary, lang }: Props) {
   useReveal();
 
@@ -90,87 +83,10 @@ export function ContactSlice({ primary, lang }: Props) {
     req: en ? p.required_en : p.required_pt,
   };
 
-  const schema = z.object({
-    name: z.string().min(2, t.err_name),
-    email: z.string().min(1, t.err_email_required).email(t.err_email_invalid),
-    message: z.string().min(8, t.err_message),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    mode: "onBlur",
-  });
-
-  const [status, setStatus] = useState<Status>("idle");
-  const [statusText, setStatusText] = useState("");
-  const [statusFading, setStatusFading] = useState(false);
-
-  useEffect(() => {
-    if (status === "idle") {
-      setStatusText("");
-      setStatusFading(false);
-      return;
-    }
-    const target =
-      status === "sending"
-        ? t.sending + "…"
-        : status === "sent"
-          ? t.sent
-          : t.err_network;
-
-    setStatusFading(false);
-    setStatusText("");
-    let i = 0;
-    const id = setInterval(() => {
-      i += 1;
-      setStatusText(target.slice(0, i));
-      if (i >= target.length) {
-        clearInterval(id);
-        if (status === "sent") {
-          setTimeout(() => setStatusFading(true), 4200);
-          setTimeout(() => setStatus("idle"), 5400);
-        }
-      }
-    }, 22);
-    return () => clearInterval(id);
-  }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  async function onSubmit(values: FormValues) {
-    setStatus("sending");
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          name: values.name,
-          email: values.email,
-          message: values.message,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus("sent");
-        reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  }
-
   return (
     <section className="contact frame" id="contact">
       <div className="contact-head">
-        <div className="section-label reveal" style={{ marginBottom: 28 }}>
-          ◦ {t.label}
-        </div>
+        <div className="section-label reveal mb-7">◦ {t.label}</div>
         <h2 className="reveal">
           {t.title_a} <em>{t.title_b}</em>
         </h2>
@@ -191,77 +107,7 @@ export function ContactSlice({ primary, lang }: Props) {
           <div>{p.detail_location}</div>
         </div>
       </div>
-
-      <form
-        className="form reveal"
-        onSubmit={handleSubmit(onSubmit)}
-        noValidate
-      >
-        <div className={`field${errors.name ? " has-error" : ""}`} data-magnet>
-          <label>
-            {t.label_name} <span className="req">{t.req}</span>
-          </label>
-          <input
-            type="text"
-            placeholder={t.ph_name}
-            autoComplete="off"
-            spellCheck={false}
-            {...register("name")}
-          />
-          {errors.name && (
-            <span className="err mono">✕ {errors.name.message}</span>
-          )}
-        </div>
-
-        <div className={`field${errors.email ? " has-error" : ""}`} data-magnet>
-          <label>
-            {t.label_email} <span className="req">{t.req}</span>
-          </label>
-          <input
-            type="email"
-            placeholder={t.ph_email}
-            autoComplete="off"
-            spellCheck={false}
-            {...register("email")}
-          />
-          {errors.email && (
-            <span className="err mono">✕ {errors.email.message}</span>
-          )}
-        </div>
-
-        <div
-          className={`field${errors.message ? " has-error" : ""}`}
-          data-magnet
-        >
-          <label>
-            {t.label_message} <span className="req">{t.req}</span>
-          </label>
-          <textarea
-            placeholder={t.ph_message}
-            rows={4}
-            {...register("message")}
-          />
-          {errors.message && (
-            <span className="err mono">✕ {errors.message.message}</span>
-          )}
-        </div>
-
-        <div className="submit-row">
-          <button
-            type="submit"
-            className="submit"
-            disabled={!isValid || status === "sending"}
-          >
-            <span>{t.submit}</span>
-            <span className="arrow">→</span>
-            <span className="under" />
-          </button>
-          <div className={`form-status${statusFading ? " fading" : ""}`}>
-            {statusText}
-            {status === "sending" && <span className="caret" />}
-          </div>
-        </div>
-      </form>
+      <ContactForm t={t} />
     </section>
   );
 }

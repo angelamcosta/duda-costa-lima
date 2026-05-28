@@ -41,9 +41,7 @@ export function AboutSlice({ primary, items, lang }: Props) {
   return (
     <section className="about frame" id="about">
       <div>
-        <div className="section-label reveal" style={{ marginBottom: 28 }}>
-          ◦ {t.label}
-        </div>
+        <div className="section-label reveal mb-7">◦ {t.label}</div>
         <blockquote className="about-quote reveal">
           <span className="mark">{primary.quote_mark}</span>
           {t.quote}
