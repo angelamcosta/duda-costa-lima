@@ -4,10 +4,11 @@ import { useEffect } from "react";
 
 export function useReveal() {
   useEffect(() => {
-    const els = Array.from(
-      document.querySelectorAll<HTMLElement>(".reveal, .stagger-char"),
-    );
+    const SEL =
+      ".reveal, .row-reveal, .word-reveal, .mask-reveal, .field, .about-meta, .footer, .section-label, .service";
+    const els = Array.from(document.querySelectorAll<HTMLElement>(SEL));
     const vh = window.innerHeight;
+
     els.forEach((el) => {
       if (el.getBoundingClientRect().top < vh * 1.05) el.classList.add("in");
     });

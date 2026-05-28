@@ -43,7 +43,11 @@ export function ServicesSlice({ primary, items, lang }: Props) {
   };
 
   return (
-    <section className="services frame" id="services">
+    <section
+      className="services frame"
+      id="services"
+      data-screen-label="Services"
+    >
       <div className="section-label reveal mb-7">◦ {t.label}</div>
       <div className="services-head reveal">
         <h2>{t.title}</h2>
@@ -59,9 +63,14 @@ export function ServicesSlice({ primary, items, lang }: Props) {
           return (
             <div
               key={i}
-              className="service reveal"
+              className="service row-reveal"
               data-service
-              style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+              style={
+                {
+                  "--reveal-delay": `${60 + i * 90}ms`,
+                  "--row-rule-delay": `${260 + i * 100}ms`,
+                } as React.CSSProperties
+              }
             >
               <div className="idx">0{i + 1}</div>
               <div className="name">

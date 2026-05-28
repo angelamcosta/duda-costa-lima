@@ -2,176 +2,278 @@
 
 import { useEffect, useRef } from "react";
 
-interface GlyphItem {
-  hx: number;
-  hy: number;
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  ch: string;
-  rot: number;
-  tone: number;
-  alpha: number;
+interface SwatchSpec {
+  x: string;
+  y: string;
+  w: number;
+  h: number;
+  pdepth: number;
+  klass: string;
+  r: number;
+  dur: number;
+  delay: number;
+  op?: number;
+  drift?: [number, number, number, number, number, number];
 }
 
+const SWATCHES: SwatchSpec[] = [
+  {
+    x: "6%",
+    y: "16%",
+    w: 148,
+    h: 96,
+    pdepth: 1.4,
+    klass: "solid-deep",
+    r: -3,
+    dur: 24,
+    delay: 0,
+    op: 0.32,
+    drift: [16, -10, -8, 18, 12, 6],
+  },
+  {
+    x: "78%",
+    y: "12%",
+    w: 128,
+    h: 84,
+    pdepth: 0.7,
+    klass: "outline solid-warm",
+    r: 4,
+    dur: 28,
+    delay: -3,
+    drift: [-14, 12, 10, -8, -18, 4],
+  },
+  {
+    x: "22%",
+    y: "38%",
+    w: 62,
+    h: 62,
+    pdepth: 1.8,
+    klass: "solid-warm",
+    r: 8,
+    dur: 20,
+    delay: -7,
+    op: 0.42,
+    drift: [22, 8, -10, -14, 6, 20],
+  },
+  {
+    x: "88%",
+    y: "44%",
+    w: 78,
+    h: 110,
+    pdepth: 1.1,
+    klass: "solid-soft",
+    r: -6,
+    dur: 32,
+    delay: -2,
+    op: 0.28,
+    drift: [-12, -20, 14, 10, -6, 18],
+  },
+  {
+    x: "12%",
+    y: "68%",
+    w: 116,
+    h: 76,
+    pdepth: 0.9,
+    klass: "outline solid-jet",
+    r: 2,
+    dur: 26,
+    delay: -10,
+    drift: [10, 14, -16, -6, 8, -18],
+  },
+  {
+    x: "64%",
+    y: "72%",
+    w: 92,
+    h: 64,
+    pdepth: 1.6,
+    klass: "solid-deep",
+    r: -2,
+    dur: 22,
+    delay: -5,
+    op: 0.3,
+    drift: [-8, 16, 18, -10, -12, 8],
+  },
+  {
+    x: "42%",
+    y: "86%",
+    w: 60,
+    h: 60,
+    pdepth: 2.0,
+    klass: "solid-warm tiny-dot",
+    r: 0,
+    dur: 18,
+    delay: -4,
+    op: 0.55,
+    drift: [12, -8, -6, 12, 14, 4],
+  },
+  {
+    x: "52%",
+    y: "22%",
+    w: 44,
+    h: 44,
+    pdepth: 2.2,
+    klass: "solid-soft tiny-dot",
+    r: 0,
+    dur: 16,
+    delay: -9,
+    op: 0.55,
+    drift: [-10, 14, 8, -8, -14, 6],
+  },
+  {
+    x: "30%",
+    y: "8%",
+    w: 96,
+    h: 56,
+    pdepth: 0.6,
+    klass: "outline solid-soft",
+    r: 5,
+    dur: 30,
+    delay: -1,
+    drift: [14, 10, -8, -12, 12, 6],
+  },
+  {
+    x: "70%",
+    y: "56%",
+    w: 50,
+    h: 50,
+    pdepth: 1.9,
+    klass: "solid-jet tiny-dot",
+    r: 0,
+    dur: 14,
+    delay: -6,
+    op: 0.42,
+  },
+  {
+    x: "4%",
+    y: "50%",
+    w: 38,
+    h: 38,
+    pdepth: 1.5,
+    klass: "solid-deep tiny-dot",
+    r: 0,
+    dur: 19,
+    delay: -8,
+    op: 0.55,
+  },
+  {
+    x: "56%",
+    y: "4%",
+    w: 60,
+    h: 88,
+    pdepth: 0.8,
+    klass: "outline solid-jet",
+    r: -4,
+    dur: 26,
+    delay: -11,
+    drift: [8, -12, -14, 6, 4, 18],
+  },
+];
+
 export function HeroBackdrop() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
     const wrap = wrapRef.current;
-    if (!canvas || !wrap) return;
-    const ctx = canvas.getContext("2d")!;
+    if (!wrap) return;
+    if (typeof window === "undefined") return;
 
-    function readPalette() {
-      const cs = getComputedStyle(document.documentElement);
-      const get = (name: string) => (cs.getPropertyValue(name) || "").trim();
-      return {
-        jet: get("--color-text-rgb") || "0, 48, 73",
-        warm: get("--color-warm-rgb") || "214, 40, 40",
-        soft: get("--color-warm-soft-rgb") || "247, 127, 0",
-        deep: get("--color-deep-rgb") || "252, 191, 73",
-      };
-    }
-    let palette = readPalette();
+    const finePointer = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!finePointer || reduced) return;
 
-    const GLYPHS = "aeioustrmlnpscdgvfh".split("");
-    const items: GlyphItem[] = [];
-    const mouse = { x: -9999, y: -9999, active: false };
-    let W = 0,
-      H = 0,
-      DPR = 1;
+    let rect = wrap.getBoundingClientRect();
+    let tx = 0,
+      ty = 0,
+      cx = 0,
+      cy = 0;
+    let raf: number | null = null;
 
-    function rand(min: number, max: number) {
-      return min + Math.random() * (max - min);
-    }
+    const measure = () => {
+      rect = wrap.getBoundingClientRect();
+    };
+    const onResize = () => measure();
+    window.addEventListener("resize", onResize, { passive: true });
 
-    function init() {
-      const rect = wrap!.getBoundingClientRect();
-      W = rect.width;
-      H = rect.height;
-      DPR = Math.min(window.devicePixelRatio || 1, 2);
-      canvas!.width = W * DPR;
-      canvas!.height = H * DPR;
-      canvas!.style.width = W + "px";
-      canvas!.style.height = H + "px";
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      items.length = 0;
-      const cols = Math.max(6, Math.floor(W / 90));
-      const rows = Math.max(4, Math.floor(H / 110));
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const x = (W / cols) * (c + 0.5) + rand(-30, 30);
-          const y = (H / rows) * (r + 0.5) + rand(-30, 30);
-          items.push({
-            hx: x,
-            hy: y,
-            x,
-            y,
-            vx: 0,
-            vy: 0,
-            size: rand(34, 110),
-            ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
-            rot: rand(-0.25, 0.25),
-            tone: Math.random(),
-            alpha: rand(0.07, 0.2),
-          });
-        }
+    function animate() {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      wrap!.style.setProperty("--parallax-x", cx.toFixed(2) + "px");
+      wrap!.style.setProperty("--parallax-y", cy.toFixed(2) + "px");
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
+        raf = requestAnimationFrame(animate);
+      } else {
+        raf = null;
       }
     }
 
     function onMove(e: MouseEvent) {
-      const rect = wrap!.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-      mouse.active =
-        mouse.x >= 0 && mouse.x <= W && mouse.y >= 0 && mouse.y <= H;
-      wrap!.style.setProperty("--mx", mouse.x + "px");
-      wrap!.style.setProperty("--my", mouse.y + "px");
-      wrap!.style.setProperty("--spot-on", mouse.active ? "1" : "0");
-    }
-
-    const PUSH_RADIUS = 240,
-      PUSH_FORCE = 0.6,
-      SPRING_K = 0.025,
-      DAMPING = 0.86;
-    let raf: number;
-
-    function tick() {
-      ctx.clearRect(0, 0, W, H);
-      for (const it of items) {
-        if (mouse.active) {
-          const dx = it.x - mouse.x,
-            dy = it.y - mouse.y;
-          const d = Math.hypot(dx, dy);
-          if (d < PUSH_RADIUS && d > 0.001) {
-            const t = 1 - d / PUSH_RADIUS;
-            const f = t * PUSH_FORCE * 4;
-            it.vx += (dx / d) * f;
-            it.vy += (dy / d) * f;
-          }
-        }
-        it.vx += (it.hx - it.x) * SPRING_K;
-        it.vy += (it.hy - it.y) * SPRING_K;
-        it.vx *= DAMPING;
-        it.vy *= DAMPING;
-        it.x += it.vx;
-        it.y += it.vy;
-
-        ctx.save();
-        ctx.translate(it.x, it.y);
-        ctx.rotate(it.rot);
-        ctx.font = `italic 500 ${it.size}px "Cormorant Garamond", serif`;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        const rgb =
-          it.tone < 0.45
-            ? palette.jet
-            : it.tone < 0.7
-              ? palette.warm
-              : it.tone < 0.9
-                ? palette.soft
-                : palette.deep;
-        ctx.fillStyle = `rgba(${rgb}, ${it.alpha})`;
-        ctx.fillText(it.ch, 0, 0);
-        ctx.restore();
-      }
-      raf = requestAnimationFrame(tick);
-    }
-
-    init();
-    raf = requestAnimationFrame(tick);
-
-    function onResize() {
-      palette = readPalette();
-      init();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      const inside =
+        mx >= 0 && mx <= rect.width && my >= 0 && my <= rect.height;
+      wrap!.style.setProperty("--mx", mx + "px");
+      wrap!.style.setProperty("--my", my + "px");
+      wrap!.style.setProperty("--spot-on", inside ? "1" : "0");
+      const nx = (mx / rect.width - 0.5) * 2;
+      const ny = (my / rect.height - 0.5) * 2;
+      tx = nx * 18;
+      ty = ny * 18;
+      if (raf === null) raf = requestAnimationFrame(animate);
     }
     function onLeave() {
-      mouse.active = false;
       wrap!.style.setProperty("--spot-on", "0");
+      tx = 0;
+      ty = 0;
+      if (raf === null) raf = requestAnimationFrame(animate);
     }
 
-    window.addEventListener("resize", onResize);
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseleave", onLeave);
+    window.addEventListener("mousemove", onMove, { passive: true });
     document.addEventListener("mouseleave", onLeave);
-
     return () => {
-      cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("mouseleave", onLeave);
+      if (raf !== null) cancelAnimationFrame(raf);
     };
   }, []);
 
   return (
     <div className="hero-backdrop" ref={wrapRef} aria-hidden="true">
       <div className="hero-spotlight" />
-      <canvas ref={canvasRef} />
+      {SWATCHES.map((s, i) => {
+        const wrapStyle = {
+          "--x": s.x,
+          "--y": s.y,
+          "--w": `${s.w}px`,
+          "--h": `${s.h}px`,
+          "--pdepth": s.pdepth,
+        } as React.CSSProperties;
+        const swatchStyle: React.CSSProperties = {
+          "--r": `${s.r}deg`,
+          "--dur": `${s.dur}s`,
+          "--delay": `${s.delay}s`,
+          ...(s.op !== undefined ? { "--op": s.op } : {}),
+          ...(s.drift
+            ? {
+                "--dx1": `${s.drift[0]}px`,
+                "--dy1": `${s.drift[1]}px`,
+                "--dx2": `${s.drift[2]}px`,
+                "--dy2": `${s.drift[3]}px`,
+                "--dx3": `${s.drift[4]}px`,
+                "--dy3": `${s.drift[5]}px`,
+              }
+            : {}),
+        } as React.CSSProperties;
+        return (
+          <div className="swatch-wrap" style={wrapStyle} key={i}>
+            <div className={`swatch ${s.klass}`} style={swatchStyle} />
+          </div>
+        );
+      })}
     </div>
   );
 }
