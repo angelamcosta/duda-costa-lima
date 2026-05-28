@@ -44,9 +44,7 @@ export function ServicesSlice({ primary, items, lang }: Props) {
 
   return (
     <section className="services frame" id="services">
-      <div className="section-label reveal" style={{ marginBottom: 28 }}>
-        ◦ {t.label}
-      </div>
+      <div className="section-label reveal mb-7">◦ {t.label}</div>
       <div className="services-head reveal">
         <h2>{t.title}</h2>
         <div className="count">{t.count}</div>

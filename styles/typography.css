@@ -1,0 +1,19 @@
+.mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.sans {
+  font-family: var(--font-body);
+}
+.serif {
+  font-family: var(--font-display);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}

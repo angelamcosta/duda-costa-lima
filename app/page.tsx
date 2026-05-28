@@ -1,6 +1,7 @@
 import { getLang } from "@/lib/i18n";
 import { createClient } from "@/prismicio";
 import { HeroSlice } from "@/slices/HeroSlice";
+import type { Content } from "@prismicio/client";
 import { AboutSlice } from "@/slices/AboutSlice";
 import { FooterSlice } from "@/slices/FooterSlice";
 import { HeaderSlice } from "@/slices/HeaderSlice";
@@ -13,8 +14,7 @@ export default async function Home() {
   const lang = await getLang();
   const client = createClient();
   const page = await client.getSingle("homepage");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const slices: any[] = page.data.slices;
+  const slices: Content.HomepageDocumentDataSlicesSlice[] = page.data.slices;
 
   const header = slices.find((s) => s.slice_type === "header");
   const hero = slices.find((s) => s.slice_type === "hero");
@@ -25,26 +25,28 @@ export default async function Home() {
 
   return (
     <>
-      {header && <HeaderSlice primary={header.primary} lang={lang} />}
+      {header && <HeaderSlice primary={header.primary as any} lang={lang} />}
       <main>
-        {hero && <HeroSlice primary={hero.primary} lang={lang} />}
+        {hero && <HeroSlice primary={hero.primary as any} lang={lang} />}
         {about && (
           <AboutSlice
-            primary={about.primary}
-            items={about.primary.key_text ?? []}
+            primary={about.primary as any}
+            items={(about.primary.key_text ?? []) as any}
             lang={lang}
           />
         )}
         {services && (
           <ServicesSlice
-            primary={services.primary}
-            items={services.primary.key_text ?? []}
+            primary={services.primary as any}
+            items={(services.primary.key_text ?? []) as any}
             lang={lang}
           />
         )}
-        {contact && <ContactSlice primary={contact.primary} lang={lang} />}
+        {contact && (
+          <ContactSlice primary={contact.primary as any} lang={lang} />
+        )}
       </main>
-      {footer && <FooterSlice primary={footer.primary} />}
+      {footer && <FooterSlice primary={footer.primary as any} />}
     </>
   );
 }

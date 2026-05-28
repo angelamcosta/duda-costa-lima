@@ -1,0 +1,9 @@
+.frame {
+  --gutter: clamp(24px, 5vw, 88px);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+section {
+  position: relative;
+}
