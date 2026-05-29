@@ -16,8 +16,8 @@ export interface ServiceItem {
   name_b_pt: string;
   desc_en: string;
   desc_pt: string;
-  price_en: string;
-  price_pt: string;
+  price_usd: string;
+  price_brl: string;
   duration_en: string;
   duration_pt: string;
 }

@@ -2,7 +2,12 @@
 
 import { useReveal } from "@/hooks/useReveal";
 import type { Props } from "@/slices/Hero/types";
+import { Rotator } from "@/components/Rotator";
+import { useLiveClock } from "@/hooks/useLiveClock";
 import { HeroBackdrop } from "@/slices/Hero/HeroBackdrop";
+
+const ROTATOR_EN = ["silhouette", "palette", "posture", "voice"];
+const ROTATOR_PT = ["silhueta", "paleta", "postura", "voz"];
 
 function WordReveal({ text, delay = 0 }: { text: string; delay?: number }) {
   return (
@@ -15,15 +20,41 @@ function WordReveal({ text, delay = 0 }: { text: string; delay?: number }) {
   );
 }
 
+function HeroClock() {
+  const { madison, you, sameTime, mounted } = useLiveClock();
+  return (
+    <span className="live-clock">
+      <span className="live-dot" />
+      <span className="clock-seg">
+        Madison&nbsp;<strong>{mounted ? madison : "—"}</strong>
+      </span>
+      {mounted && !sameTime && (
+        <span className="clock-seg clock-you">
+          <span className="clock-slash">/</span>You&nbsp;<strong>{you}</strong>
+        </span>
+      )}
+    </span>
+  );
+}
+
 export function HeroSlice({ primary, lang }: Props) {
   useReveal();
+  const en = lang === "en";
 
   const t = {
-    meta_top: lang === "en" ? primary.meta_top_en : primary.meta_top_pt,
-    tag: lang === "en" ? primary.tag_en : primary.tag_pt,
-    scroll: lang === "en" ? primary.scroll_en : primary.scroll_pt,
-    index_l: lang === "en" ? primary.index_l_en : primary.index_l_pt,
+    meta_top: en ? primary.meta_top_en : primary.meta_top_pt,
+    tag: en ? primary.tag_en : primary.tag_pt,
+    scroll: en ? primary.scroll_en : primary.scroll_pt,
+    index_l: en ? primary.index_l_en : primary.index_l_pt,
   };
+
+  const rotatorPrefix = en ? "A practice of" : "Uma prática de";
+  const keywords =
+    primary.hero_keywords && primary.hero_keywords.length > 0
+      ? primary.hero_keywords.map((k) => (en ? k.word_en : k.word_pt))
+      : en
+        ? ROTATOR_EN
+        : ROTATOR_PT;
 
   const nameLine1A = primary.name_a;
   const nameLine1B = primary.name_c ? primary.name_b : "";
@@ -33,8 +64,10 @@ export function HeroSlice({ primary, lang }: Props) {
     <section className="hero frame" id="hero" data-screen-label="Hero">
       <HeroBackdrop />
 
-      <div className="hero-meta mono reveal">
+      <div className="hero-meta reveal">
         <span>{t.meta_top}</span>
+        <span className="dot">·</span>
+        <HeroClock />
       </div>
 
       <h1
@@ -59,6 +92,14 @@ export function HeroSlice({ primary, lang }: Props) {
           </em>
         </span>
       </h1>
+
+      <div
+        className="hero-rotator reveal"
+        style={{ "--reveal-delay": "700ms" } as React.CSSProperties}
+      >
+        <span className="rotator-prefix mono">{rotatorPrefix}</span>
+        <Rotator words={keywords} variant="rotator" />
+      </div>
 
       <p
         className="hero-tag reveal"

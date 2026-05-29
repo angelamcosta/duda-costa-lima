@@ -1,6 +1,12 @@
 import type { Lang } from "@/lib/i18n";
 
+export interface ContactPromptItem {
+  prompt_en: string;
+  prompt_pt: string;
+}
+
 export interface ContactPrimary {
+  contact_prompts?: ContactPromptItem[];
   label_en: string;
   label_pt: string;
   title_a_en: string;
@@ -51,6 +57,8 @@ export type FormValues = { name: string; email: string; message: string };
 export type Status = "idle" | "sending" | "sent" | "error";
 
 export interface ContactFormProps {
+  promptLabel: string;
+  prompts: string[];
   t: {
     label_name: string;
     label_email: string;

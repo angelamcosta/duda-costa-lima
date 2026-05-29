@@ -1,4 +1,5 @@
 import { getLang } from "@/lib/i18n";
+import { Toc } from "@/components/Toc";
 import { HeroSlice } from "@/slices/Hero";
 import { createClient } from "@/prismicio";
 import type { ComponentProps } from "react";
@@ -49,6 +50,7 @@ export default async function Home() {
           lang={lang}
         />
       )}
+      <Toc lang={lang} />
       <main>
         {hero && (
           <HeroSlice
@@ -80,7 +82,10 @@ export default async function Home() {
         )}
       </main>
       {footer && (
-        <FooterSlice primary={footer.primary as unknown as FooterPrimary} />
+        <FooterSlice
+          primary={footer.primary as unknown as FooterPrimary}
+          lang={lang}
+        />
       )}
     </>
   );

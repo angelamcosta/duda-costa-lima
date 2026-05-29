@@ -6,6 +6,8 @@ import type { Props } from "@/slices/About/types";
 export function AboutSlice({ primary, items, lang }: Props) {
   useReveal();
 
+  const en = lang === "en";
+
   const t = {
     label: lang === "en" ? primary.label_en : primary.label_pt,
     quote: lang === "en" ? primary.quote_en : primary.quote_pt,
@@ -52,6 +54,19 @@ export function AboutSlice({ primary, items, lang }: Props) {
             </div>
           ))}
         </dl>
+        <div
+          className="about-status reveal"
+          style={{ "--reveal-delay": "520ms" } as React.CSSProperties}
+        >
+          <span className="live-dot live-dot--in" />
+          <span>{en ? "Currently" : "Atualmente"}</span>
+          <span className="status-sep">—</span>
+          <span>{en ? "FW26 wardrobe edits" : "Edições de closet FW26"}</span>
+          <span className="status-sep">/</span>
+          <span>
+            {en ? "Booking from August" : "Agendamentos a partir de Agosto"}
+          </span>
+        </div>
       </div>
     </section>
   );

@@ -13,6 +13,7 @@ export interface HeroPrimary {
   index_l_en: string;
   index_l_pt: string;
   index_r: string;
+  hero_keywords?: { word_en: string; word_pt: string }[];
 }
 
 export interface Props {
@@ -20,16 +21,13 @@ export interface Props {
   lang: Lang;
 }
 
-export interface SwatchSpec {
+export interface TagSpec {
   x: string;
   y: string;
   w: number;
-  h: number;
+  rot: number;
+  delay: number;
   pdepth: number;
   klass: string;
-  r: number;
-  dur: number;
-  delay: number;
   op?: number;
-  drift?: [number, number, number, number, number, number];
 }
