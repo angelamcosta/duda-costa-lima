@@ -2,8 +2,39 @@
 
 import { useReveal } from "@/hooks/useReveal";
 import type { Props } from "@/slices/Contact/types";
+import { useLiveClock } from "@/hooks/useLiveClock";
 import { DEFAULT_CONTACT_EMAIL } from "@/lib/contact";
 import { ContactForm } from "@/slices/Contact/ContactForm";
+
+const FALLBACK_PROMPTS_EN = [
+  "What event are you dressing for?",
+  "What does the room look like?",
+  "Have we worked together before?",
+  "What hasn't worked, in past consultations?",
+];
+
+const FALLBACK_PROMPTS_PT = [
+  "Para qual evento você está se vestindo?",
+  "Como é a sala em que você entra?",
+  "Já trabalhamos juntas antes?",
+  "O que não funcionou em consultorias passadas?",
+];
+
+function ContactTime() {
+  const { madison, you, mounted } = useLiveClock();
+  return (
+    <div className="contact-time">
+      <span className="live-dot" />
+      <span className="ct-here">
+        Madison&nbsp;<strong>{mounted ? madison : "—"}</strong>
+      </span>
+      <span className="sep">/</span>
+      <span className="ct-you">
+        Your time&nbsp;<strong>{mounted ? you : "—"}</strong>
+      </span>
+    </div>
+  );
+}
 
 export function ContactSlice({ primary, lang }: Props) {
   useReveal();
@@ -11,6 +42,15 @@ export function ContactSlice({ primary, lang }: Props) {
   const p = primary;
   const en = lang === "en";
   const email = p.detail_email?.trim() || DEFAULT_CONTACT_EMAIL;
+
+  const prompts =
+    p.contact_prompts && p.contact_prompts.length > 0
+      ? p.contact_prompts.map((item) => (en ? item.prompt_en : item.prompt_pt))
+      : en
+        ? FALLBACK_PROMPTS_EN
+        : FALLBACK_PROMPTS_PT;
+
+  const promptLabel = en ? "Try opening with" : "Tente abrir com";
 
   const t = {
     label: en ? p.label_en : p.label_pt,
@@ -43,7 +83,7 @@ export function ContactSlice({ primary, lang }: Props) {
       <div className="contact-head">
         <div className="section-label reveal mb-7">◦ {t.label}</div>
         <h2 className="reveal">
-          {t.title_a} <em>{t.title_b}</em>
+          {t.title_a} <em>{t.title_b}</em>.
         </h2>
         <p
           className="reveal"
@@ -60,9 +100,11 @@ export function ContactSlice({ primary, lang }: Props) {
           </div>
           <div>{t.detail_hours}</div>
           <div>{p.detail_location}</div>
+          <ContactTime />
         </div>
       </div>
-      <ContactForm t={t} />
+
+      <ContactForm t={t} promptLabel={promptLabel} prompts={prompts} />
     </section>
   );
 }

@@ -40,7 +40,9 @@ export function HeaderSlice({ primary, lang }: Props) {
           PT
         </button>
       </div>
-      <span className="topbar-rule" aria-hidden="true" />
+      <span className="topbar-rule" aria-hidden="true">
+        <span className="topbar-progress" />
+      </span>
     </header>
   );
 }
