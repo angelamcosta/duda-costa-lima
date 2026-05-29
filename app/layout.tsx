@@ -1,5 +1,7 @@
 import "@/app/globals.css";
+import { repositoryName } from "@/prismicio";
 import type { Metadata, Viewport } from "next";
+import { PrismicPreview } from "@prismicio/next";
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 import { MouseEffectsProvider } from "@/components/MouseEffectsProvider";
 
@@ -53,6 +55,7 @@ export default function RootLayout({
     >
       <body>
         <MouseEffectsProvider>{children}</MouseEffectsProvider>
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );

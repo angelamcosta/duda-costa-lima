@@ -2,22 +2,8 @@
 
 import type { Lang } from "@/lib/i18n";
 import { useRouter } from "next/navigation";
+import type { Props } from "@/slices/Header/types";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
-
-interface HeaderPrimary {
-  brand_mark: string;
-  nav_about_en: string;
-  nav_about_pt: string;
-  nav_services_en: string;
-  nav_services_pt: string;
-  nav_contact_en: string;
-  nav_contact_pt: string;
-}
-
-interface Props {
-  primary: HeaderPrimary;
-  lang: Lang;
-}
 
 export function HeaderSlice({ primary, lang }: Props) {
   const router = useRouter();
@@ -54,7 +40,9 @@ export function HeaderSlice({ primary, lang }: Props) {
           PT
         </button>
       </div>
-      <span className="topbar-rule" aria-hidden="true" />
+      <span className="topbar-rule" aria-hidden="true">
+        <span className="topbar-progress" />
+      </span>
     </header>
   );
 }

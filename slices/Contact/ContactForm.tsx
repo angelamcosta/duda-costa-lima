@@ -1,34 +1,20 @@
 "use client";
 
+import type {
+  Status,
+  FormValues,
+  ContactFormProps,
+} from "@/slices/Contact/types";
+
 import { z } from "zod";
 import { useForm } from "react-hook-form";
+import { Rotator } from "@/components/Rotator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback, useEffect, useState } from "react";
 
-type FormValues = { name: string; email: string; message: string };
-type Status = "idle" | "sending" | "sent" | "error";
+const MESSAGE_MAX = 600;
 
-interface ContactFormProps {
-  t: {
-    label_name: string;
-    label_email: string;
-    label_message: string;
-    ph_name: string;
-    ph_email: string;
-    ph_message: string;
-    submit: string;
-    sending: string;
-    sent: string;
-    err_network: string;
-    err_name: string;
-    err_email_required: string;
-    err_email_invalid: string;
-    err_message: string;
-    req: string;
-  };
-}
-
-export function ContactForm({ t }: ContactFormProps) {
+export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
   const schema = z.object({
     name: z.string().min(2, t.err_name),
     email: z.string().min(1, t.err_email_required).email(t.err_email_invalid),
@@ -44,6 +30,14 @@ export function ContactForm({ t }: ContactFormProps) {
     resolver: zodResolver(schema),
     mode: "onBlur",
   });
+
+  const [messageLen, setMessageLen] = useState(0);
+  const counterClass =
+    messageLen >= MESSAGE_MAX
+      ? " is-max"
+      : messageLen > MESSAGE_MAX * 0.75
+        ? " is-near"
+        : "";
 
   const [status, setStatus] = useState<Status>("idle");
   const [statusText, setStatusText] = useState("");
@@ -97,6 +91,7 @@ export function ContactForm({ t }: ContactFormProps) {
       if (data.success) {
         setFormStatus("sent");
         reset();
+        setMessageLen(0);
       } else {
         setFormStatus("error");
       }
@@ -107,8 +102,14 @@ export function ContactForm({ t }: ContactFormProps) {
 
   return (
     <form className="form reveal" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <div className="contact-prompt" aria-hidden="true">
+        <span className="prompt-label mono">{promptLabel}</span>
+        <Rotator words={prompts} variant="prompt" />
+      </div>
+
       <div
         className={`field${errors.name ? " has-error" : ""}`}
+        data-field="name"
         data-magnet
         style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
       >
@@ -129,6 +130,7 @@ export function ContactForm({ t }: ContactFormProps) {
 
       <div
         className={`field${errors.email ? " has-error" : ""}`}
+        data-field="email"
         data-magnet
         style={{ "--reveal-delay": "200ms" } as React.CSSProperties}
       >
@@ -148,7 +150,10 @@ export function ContactForm({ t }: ContactFormProps) {
       </div>
 
       <div
-        className={`field${errors.message ? " has-error" : ""}`}
+        className={`field${errors.message ? " has-error" : ""}${
+          messageLen > 0 ? " has-content" : ""
+        }`}
+        data-field="message"
         data-magnet
         style={{ "--reveal-delay": "320ms" } as React.CSSProperties}
       >
@@ -158,11 +163,17 @@ export function ContactForm({ t }: ContactFormProps) {
         <textarea
           placeholder={t.ph_message}
           rows={4}
-          {...register("message")}
+          maxLength={MESSAGE_MAX}
+          {...register("message", {
+            onChange: (e) => setMessageLen(e.target.value.length),
+          })}
         />
         {errors.message && (
           <span className="err mono">✕ {errors.message.message}</span>
         )}
+        <div className={`char-counter mono${counterClass}`} aria-live="polite">
+          {messageLen}&nbsp;/&nbsp;{MESSAGE_MAX}
+        </div>
       </div>
 
       <div className="submit-row">

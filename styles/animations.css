@@ -120,19 +120,45 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  .tag,
+  .tag-string,
+  .tag-wrap {
+    animation: none !important;
+    opacity: var(--op, 0.82);
+  }
+  .tag.outline {
+    opacity: 0.6;
+  }
   .reveal,
   .row-reveal,
   .mask-reveal,
-  .word-reveal > span {
+  .word-reveal > span,
+  .field,
+  .field input,
+  .field textarea,
+  .field label,
+  .about-meta > div,
+  .footer > * {
     opacity: 1 !important;
     transform: none !important;
     -webkit-clip-path: none !important;
     clip-path: none !important;
   }
-  .rule {
+  .rule,
+  .service::after,
+  .footer::before {
     transform: scaleX(1) !important;
   }
-
+  .scroll-cue .line::after {
+    display: none;
+  }
+  .live-dot {
+    animation: none !important;
+  }
+  .rotator-word,
+  .prompt-word {
+    transition: none !important;
+  }
   .section-label {
     color: var(--color-warm);
   }
