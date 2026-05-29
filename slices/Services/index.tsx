@@ -1,36 +1,8 @@
 "use client";
 
-import type { Lang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
+import type { Props } from "@/slices/Services/types";
 import { useServiceDrag } from "@/hooks/useServiceDrag";
-
-interface ServicesPrimary {
-  label_en: string;
-  label_pt: string;
-  title_en: string;
-  title_pt: string;
-  count_en: string;
-  count_pt: string;
-}
-
-interface ServiceItem {
-  name_a_en: string;
-  name_a_pt: string;
-  name_b_en: string;
-  name_b_pt: string;
-  desc_en: string;
-  desc_pt: string;
-  price_en: string;
-  price_pt: string;
-  duration_en: string;
-  duration_pt: string;
-}
-
-interface Props {
-  primary: ServicesPrimary;
-  items: ServiceItem[];
-  lang: Lang;
-}
 
 export function ServicesSlice({ primary, items, lang }: Props) {
   useReveal();

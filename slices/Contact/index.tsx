@@ -1,56 +1,9 @@
 "use client";
 
-import type { Lang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { ContactForm } from "@/slices/Contact/ContactForm";
+import type { Props } from "@/slices/Contact/types";
 import { DEFAULT_CONTACT_EMAIL } from "@/lib/contact";
-
-interface ContactPrimary {
-  label_en: string;
-  label_pt: string;
-  title_a_en: string;
-  title_a_pt: string;
-  title_b_en: string;
-  title_b_pt: string;
-  blurb_en: string;
-  blurb_pt: string;
-  detail_email: string;
-  detail_hours_en: string;
-  detail_hours_pt: string;
-  detail_location: string;
-  label_name_en: string;
-  label_name_pt: string;
-  label_email: string;
-  label_message_en: string;
-  label_message_pt: string;
-  placeholder_name: string;
-  placeholder_email: string;
-  placeholder_message_en: string;
-  placeholder_message_pt: string;
-  submit_en: string;
-  submit_pt: string;
-  sending_en: string;
-  sending_pt: string;
-  sent_en: string;
-  sent_pt: string;
-  error_name_en: string;
-  error_name_pt: string;
-  error_email_required_en: string;
-  error_email_required_pt: string;
-  error_email_invalid_en: string;
-  error_email_invalid_pt: string;
-  error_message_en: string;
-  error_message_pt: string;
-  error_network_en: string;
-  error_network_pt: string;
-  required_en: string;
-  required_pt: string;
-}
-
-interface Props {
-  primary: ContactPrimary;
-  lang: Lang;
-}
+import { ContactForm } from "@/slices/Contact/ContactForm";
 
 export function ContactSlice({ primary, lang }: Props) {
   useReveal();
