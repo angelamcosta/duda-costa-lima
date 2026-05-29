@@ -1,3 +1,8 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .topbar {
   position: fixed;
   top: 0;
@@ -130,6 +135,11 @@
   isolation: isolate;
   overflow: hidden;
 }
+@media (min-width: 640px) {
+  .hero {
+    gap: 44px;
+  }
+}
 @media (min-width: 768px) {
   .hero {
     gap: 48px;
@@ -146,11 +156,25 @@
   position: relative;
   z-index: 2;
 }
+@media (max-width: 767px) {
+  .hero {
+    justify-content: flex-end;
+    gap: 28px;
+    padding-top: calc(var(--header-h) + 18px);
+    padding-bottom: 8vh;
+  }
+  .hero-backdrop {
+    height: 48%;
+    bottom: auto;
+    opacity: 0.72;
+  }
+}
 
 .hero-backdrop {
   position: absolute;
   inset: 0;
   z-index: 1;
+  opacity: 0.82;
   pointer-events: none;
   overflow: hidden;
   --parallax-x: 0px;
@@ -313,7 +337,7 @@
 }
 @media (min-width: 768px) {
   .hero-name {
-    font-size: clamp(74px, 11vw, 168px);
+    font-size: clamp(108px, 11vw, 168px);
     line-height: 0.9;
   }
 }
@@ -398,6 +422,15 @@
   font-weight: 500;
 }
 
+.hero-meta,
+.hero-rotator,
+.hero-tag,
+.hero-bottom {
+  text-shadow:
+    0 0 7px var(--color-bg),
+    0 0 14px var(--color-bg);
+}
+
 .hero-clock {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -425,12 +458,20 @@
 }
 
 .about {
-  padding-top: 12vh;
-  padding-bottom: 14vh;
+  padding-top: 9vh;
+  padding-bottom: 10vh;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
   align-items: start;
+}
+.about > * {
+  min-width: 0;
+}
+@media (min-width: 640px) {
+  .about {
+    gap: 48px;
+  }
 }
 @media (min-width: 768px) {
   .about {
@@ -460,7 +501,7 @@
 }
 @media (min-width: 768px) {
   .about-quote {
-    font-size: clamp(40px, 5.4vw, 64px);
+    font-size: clamp(54px, 5.4vw, 64px);
   }
 }
 .about-quote em {
@@ -475,7 +516,7 @@
   margin-right: 0.15em;
 }
 .about-body {
-  max-width: 52ch;
+  max-width: min(52ch, 100%);
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -496,7 +537,7 @@
   padding-top: 18px;
   border-top: 1px solid var(--color-border);
 }
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   .about-meta {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -528,8 +569,8 @@
 }
 
 .services {
-  padding-top: 10vh;
-  padding-bottom: 14vh;
+  padding-top: 8vh;
+  padding-bottom: 10vh;
 }
 @media (min-width: 768px) {
   .services {
@@ -578,6 +619,7 @@
   gap: 14px clamp(14px, 3vw, 24px);
   align-items: baseline;
   padding: 28px 4px 28px;
+  min-width: 0;
   cursor: default;
   user-select: none;
   transition:
@@ -621,6 +663,9 @@
     padding: 38px 4px 36px;
   }
 }
+.service > * {
+  min-width: 0;
+}
 .service .idx {
   grid-area: idx;
   font-family: var(--font-mono);
@@ -641,7 +686,7 @@
 }
 @media (min-width: 768px) {
   .service .name {
-    font-size: clamp(34px, 4.4vw, 56px);
+    font-size: clamp(46px, 4.4vw, 56px);
   }
 }
 .service .name em {
@@ -697,12 +742,17 @@
 }
 
 .contact {
-  padding-top: 10vh;
-  padding-bottom: 14vh;
+  padding-top: 8vh;
+  padding-bottom: 10vh;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
   align-items: start;
+}
+@media (min-width: 640px) {
+  .contact {
+    gap: 48px;
+  }
 }
 @media (min-width: 768px) {
   .contact {
@@ -729,7 +779,7 @@
 }
 @media (min-width: 768px) {
   .contact-head h2 {
-    font-size: clamp(44px, 5.4vw, 76px);
+    font-size: clamp(62px, 5.4vw, 76px);
   }
 }
 .contact-head h2 em {
@@ -995,8 +1045,8 @@
 .footer::before {
   content: "";
   position: absolute;
-  left: clamp(20px, 5vw, 88px);
-  right: clamp(20px, 5vw, 88px);
+  left: calc(-1 * var(--gutter));
+  right: calc(-1 * var(--gutter));
   top: 0;
   height: 1px;
   background: var(--color-text);
