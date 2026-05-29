@@ -1,32 +1,15 @@
 "use client";
 
+import type {
+  Status,
+  FormValues,
+  ContactFormProps,
+} from "@/slices/Contact/types";
+
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback, useEffect, useState } from "react";
-
-type FormValues = { name: string; email: string; message: string };
-type Status = "idle" | "sending" | "sent" | "error";
-
-interface ContactFormProps {
-  t: {
-    label_name: string;
-    label_email: string;
-    label_message: string;
-    ph_name: string;
-    ph_email: string;
-    ph_message: string;
-    submit: string;
-    sending: string;
-    sent: string;
-    err_network: string;
-    err_name: string;
-    err_email_required: string;
-    err_email_invalid: string;
-    err_message: string;
-    req: string;
-  };
-}
 
 export function ContactForm({ t }: ContactFormProps) {
   const schema = z.object({

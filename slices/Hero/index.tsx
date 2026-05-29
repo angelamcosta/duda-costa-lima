@@ -1,28 +1,8 @@
 "use client";
 
-import type { Lang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
+import type { Props } from "@/slices/Hero/types";
 import { HeroBackdrop } from "@/slices/Hero/HeroBackdrop";
-
-interface HeroPrimary {
-  meta_top_en: string;
-  meta_top_pt: string;
-  name_a: string;
-  name_b: string;
-  name_c?: string;
-  tag_en: string;
-  tag_pt: string;
-  scroll_en: string;
-  scroll_pt: string;
-  index_l_en: string;
-  index_l_pt: string;
-  index_r: string;
-}
-
-interface Props {
-  primary: HeroPrimary;
-  lang: Lang;
-}
 
 function WordReveal({ text, delay = 0 }: { text: string; delay?: number }) {
   return (

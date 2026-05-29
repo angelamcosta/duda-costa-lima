@@ -1,17 +1,8 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
+import type { Props } from "@/slices/Footer/types";
 import { DEFAULT_CONTACT_EMAIL } from "@/lib/contact";
-
-interface FooterPrimary {
-  copy: string;
-  legal: string;
-  built: string;
-}
-
-interface Props {
-  primary: FooterPrimary;
-}
 
 export function FooterSlice({ primary }: Props) {
   useReveal();

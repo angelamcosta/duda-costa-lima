@@ -1,20 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-
-interface SwatchSpec {
-  x: string;
-  y: string;
-  w: number;
-  h: number;
-  pdepth: number;
-  klass: string;
-  r: number;
-  dur: number;
-  delay: number;
-  op?: number;
-  drift?: [number, number, number, number, number, number];
-}
+import type { SwatchSpec } from "@/slices/Hero/types";
 
 const SWATCHES: SwatchSpec[] = [
   {
