@@ -4,6 +4,9 @@ export interface FooterPrimary {
   copy: string;
   legal: string;
   built: string;
+  palette_name?: string;
+  appointment_en?: string;
+  appointment_pt?: string;
 }
 
 export interface Props {

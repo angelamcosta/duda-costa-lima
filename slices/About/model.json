@@ -111,6 +111,48 @@
               }
             }
           }
+        },
+        "status_label_en": {
+          "type": "Text",
+          "config": {
+            "label": "Status Label EN",
+            "placeholder": ""
+          }
+        },
+        "status_label_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Status Label PT",
+            "placeholder": ""
+          }
+        },
+        "status_a_en": {
+          "type": "Text",
+          "config": {
+            "label": "Status A EN",
+            "placeholder": ""
+          }
+        },
+        "status_a_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Status A PT",
+            "placeholder": ""
+          }
+        },
+        "status_b_en": {
+          "type": "Text",
+          "config": {
+            "label": "Status B EN",
+            "placeholder": ""
+          }
+        },
+        "status_b_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Status B PT",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

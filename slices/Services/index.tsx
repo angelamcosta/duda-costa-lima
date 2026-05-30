@@ -114,6 +114,28 @@ export function ServicesSlice({ primary, items, lang }: Props) {
           const desc = lang === "en" ? s.desc_en : s.desc_pt;
           const price = (currency === "BRL" ? s.price_brl : s.price_usd) ?? "";
           const dur = lang === "en" ? s.duration_en : s.duration_pt;
+          const fallback = EXPAND_CONTENT[i];
+          const includes =
+            (lang === "en" ? s.includes_en : s.includes_pt) ||
+            (fallback
+              ? lang === "en"
+                ? fallback.includes_en
+                : fallback.includes_pt
+              : "");
+          const leave =
+            (lang === "en" ? s.leave_en : s.leave_pt) ||
+            (fallback
+              ? lang === "en"
+                ? fallback.leave_en
+                : fallback.leave_pt
+              : "");
+          const ideal =
+            (lang === "en" ? s.ideal_en : s.ideal_pt) ||
+            (fallback
+              ? lang === "en"
+                ? fallback.ideal_en
+                : fallback.ideal_pt
+              : "");
           return (
             <div
               key={i}
@@ -152,13 +174,7 @@ export function ServicesSlice({ primary, items, lang }: Props) {
                       ? EXPAND_LABELS.includes_en
                       : EXPAND_LABELS.includes_pt}
                   </div>
-                  <div className="expand-val">
-                    {EXPAND_CONTENT[i]
-                      ? lang === "en"
-                        ? EXPAND_CONTENT[i].includes_en
-                        : EXPAND_CONTENT[i].includes_pt
-                      : ""}
-                  </div>
+                  <div className="expand-val">{includes}</div>
                 </div>
                 <div className="expand-col">
                   <div className="expand-key mono">
@@ -166,13 +182,7 @@ export function ServicesSlice({ primary, items, lang }: Props) {
                       ? EXPAND_LABELS.leave_en
                       : EXPAND_LABELS.leave_pt}
                   </div>
-                  <div className="expand-val">
-                    {EXPAND_CONTENT[i]
-                      ? lang === "en"
-                        ? EXPAND_CONTENT[i].leave_en
-                        : EXPAND_CONTENT[i].leave_pt
-                      : ""}
-                  </div>
+                  <div className="expand-val">{leave}</div>
                 </div>
                 <div className="expand-col">
                   <div className="expand-key mono">
@@ -180,13 +190,7 @@ export function ServicesSlice({ primary, items, lang }: Props) {
                       ? EXPAND_LABELS.ideal_en
                       : EXPAND_LABELS.ideal_pt}
                   </div>
-                  <div className="expand-val">
-                    {EXPAND_CONTENT[i]
-                      ? lang === "en"
-                        ? EXPAND_CONTENT[i].ideal_en
-                        : EXPAND_CONTENT[i].ideal_pt
-                      : ""}
-                  </div>
+                  <div className="expand-val">{ideal}</div>
                 </div>
               </div>
             </div>

@@ -13,6 +13,15 @@ export function AboutSlice({ primary, items, lang }: Props) {
     quote: lang === "en" ? primary.quote_en : primary.quote_pt,
     p1: lang === "en" ? primary.p1_en : primary.p1_pt,
     p2: lang === "en" ? primary.p2_en : primary.p2_pt,
+    status_label:
+      (en ? primary.status_label_en : primary.status_label_pt) ||
+      (en ? "Currently" : "Atualmente"),
+    status_a:
+      (en ? primary.status_a_en : primary.status_a_pt) ||
+      (en ? "FW26 wardrobe edits" : "Edições de closet FW26"),
+    status_b:
+      (en ? primary.status_b_en : primary.status_b_pt) ||
+      (en ? "Booking from August" : "Agendamentos a partir de Agosto"),
   };
 
   return (
@@ -59,13 +68,11 @@ export function AboutSlice({ primary, items, lang }: Props) {
           style={{ "--reveal-delay": "520ms" } as React.CSSProperties}
         >
           <span className="live-dot live-dot--in" />
-          <span>{en ? "Currently" : "Atualmente"}</span>
+          <span>{t.status_label}</span>
           <span className="status-sep">—</span>
-          <span>{en ? "FW26 wardrobe edits" : "Edições de closet FW26"}</span>
+          <span>{t.status_a}</span>
           <span className="status-sep">/</span>
-          <span>
-            {en ? "Booking from August" : "Agendamentos a partir de Agosto"}
-          </span>
+          <span>{t.status_b}</span>
         </div>
       </div>
     </section>

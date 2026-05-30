@@ -46,6 +46,8 @@ export interface ContactPrimary {
   error_network_pt: string;
   required_en: string;
   required_pt: string;
+  prompt_label_en?: string;
+  prompt_label_pt?: string;
 }
 
 export interface Props {

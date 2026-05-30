@@ -19,12 +19,15 @@ export function FooterSlice({ primary, lang }: Props) {
   useReveal();
   const en = lang === "en";
   const email = primary.built?.trim() || DEFAULT_CONTACT_EMAIL;
-  const appointment = en ? "All work by appointment" : "Tudo sob agendamento";
+  const paletteName = primary.palette_name || "Bright Winter";
+  const appointment =
+    (en ? primary.appointment_en : primary.appointment_pt) ||
+    (en ? "All work by appointment" : "Tudo sob agendamento");
 
   return (
     <footer className="footer frame" data-screen-label="Footer">
       <span>{primary.copy}</span>
-      <span className="footer-palette" aria-label="Bright Winter palette">
+      <span className="footer-palette" aria-label={`${paletteName} palette`}>
         <span
           className="palette-dot"
           style={{ "--c": "var(--color-warm)" } as React.CSSProperties}
@@ -37,7 +40,7 @@ export function FooterSlice({ primary, lang }: Props) {
           className="palette-dot"
           style={{ "--c": "var(--color-deep)" } as React.CSSProperties}
         />
-        <span className="palette-name">Bright Winter</span>
+        <span className="palette-name">{paletteName}</span>
       </span>
       <span>{appointment}</span>
       <span>

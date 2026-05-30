@@ -40,6 +40,13 @@
             "placeholder": ""
           }
         },
+        "name_c": {
+          "type": "Text",
+          "config": {
+            "label": "Name C",
+            "placeholder": ""
+          }
+        },
         "tag_en": {
           "type": "Text",
           "config": {
@@ -86,6 +93,43 @@
           "type": "Text",
           "config": {
             "label": "Index R",
+            "placeholder": ""
+          }
+        },
+        "hero_keywords": {
+          "type": "Group",
+          "config": {
+            "label": "Hero Keywords",
+            "repeat": true,
+            "fields": {
+              "word_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Word EN",
+                  "placeholder": ""
+                }
+              },
+              "word_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Word PT",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "rotator_prefix_en": {
+          "type": "Text",
+          "config": {
+            "label": "Rotator Prefix EN",
+            "placeholder": ""
+          }
+        },
+        "rotator_prefix_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Rotator Prefix PT",
             "placeholder": ""
           }
         }

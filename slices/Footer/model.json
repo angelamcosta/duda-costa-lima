@@ -32,6 +32,27 @@
             "label": "Built",
             "placeholder": ""
           }
+        },
+        "palette_name": {
+          "type": "Text",
+          "config": {
+            "label": "Palette Name",
+            "placeholder": ""
+          }
+        },
+        "appointment_en": {
+          "type": "Text",
+          "config": {
+            "label": "Appointment EN",
+            "placeholder": ""
+          }
+        },
+        "appointment_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Appointment PT",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
