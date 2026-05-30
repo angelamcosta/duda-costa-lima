@@ -102,17 +102,17 @@
                   "placeholder": ""
                 }
               },
-              "price_en": {
+              "price_usd": {
                 "type": "Text",
                 "config": {
-                  "label": "Price EN",
+                  "label": "Price USD",
                   "placeholder": ""
                 }
               },
-              "price_pt": {
+              "price_brl": {
                 "type": "Text",
                 "config": {
-                  "label": "Price PT",
+                  "label": "Price BRL",
                   "placeholder": ""
                 }
               },
@@ -127,6 +127,48 @@
                 "type": "Text",
                 "config": {
                   "label": "Duration PT",
+                  "placeholder": ""
+                }
+              },
+              "includes_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Includes EN",
+                  "placeholder": ""
+                }
+              },
+              "includes_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Includes PT",
+                  "placeholder": ""
+                }
+              },
+              "leave_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Leave EN",
+                  "placeholder": ""
+                }
+              },
+              "leave_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Leave PT",
+                  "placeholder": ""
+                }
+              },
+              "ideal_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Ideal EN",
+                  "placeholder": ""
+                }
+              },
+              "ideal_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Ideal PT",
                   "placeholder": ""
                 }
               }

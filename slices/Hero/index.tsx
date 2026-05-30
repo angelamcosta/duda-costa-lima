@@ -1,8 +1,8 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
-import type { Props } from "@/slices/Hero/types";
 import { Rotator } from "@/components/Rotator";
+import type { Props } from "@/slices/Hero/types";
 import { useLiveClock } from "@/hooks/useLiveClock";
 import { HeroBackdrop } from "@/slices/Hero/HeroBackdrop";
 
@@ -48,7 +48,9 @@ export function HeroSlice({ primary, lang }: Props) {
     index_l: en ? primary.index_l_en : primary.index_l_pt,
   };
 
-  const rotatorPrefix = en ? "A practice of" : "Uma prática de";
+  const rotatorPrefix =
+    (en ? primary.rotator_prefix_en : primary.rotator_prefix_pt) ||
+    (en ? "A practice of" : "Uma prática de");
   const keywords =
     primary.hero_keywords && primary.hero_keywords.length > 0
       ? primary.hero_keywords.map((k) => (en ? k.word_en : k.word_pt))

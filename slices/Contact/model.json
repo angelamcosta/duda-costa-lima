@@ -284,6 +284,43 @@
             "label": "Required PT",
             "placeholder": ""
           }
+        },
+        "contact_prompts": {
+          "type": "Group",
+          "config": {
+            "label": "Contact Prompts",
+            "repeat": true,
+            "fields": {
+              "prompt_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Prompt EN",
+                  "placeholder": ""
+                }
+              },
+              "prompt_pt": {
+                "type": "Text",
+                "config": {
+                  "label": "Prompt PT",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "prompt_label_en": {
+          "type": "Text",
+          "config": {
+            "label": "Prompt Label EN",
+            "placeholder": ""
+          }
+        },
+        "prompt_label_pt": {
+          "type": "Text",
+          "config": {
+            "label": "Prompt Label PT",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
