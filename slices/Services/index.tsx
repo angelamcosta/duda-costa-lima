@@ -95,6 +95,10 @@ export function ServicesSlice({ primary, items, lang }: Props) {
     title: lang === "en" ? primary.title_en : primary.title_pt,
     count: lang === "en" ? primary.count_en : primary.count_pt,
   };
+  const expandLabel =
+    lang === "en"
+      ? "Expand service details for"
+      : "Expandir detalhes do serviço";
 
   return (
     <section
@@ -138,7 +142,7 @@ export function ServicesSlice({ primary, items, lang }: Props) {
                 <button
                   className="service-chev"
                   type="button"
-                  aria-label="Expand"
+                  aria-label={`${expandLabel} ${nameA} ${nameB}`.trim()}
                   aria-expanded="false"
                 >
                   <span />

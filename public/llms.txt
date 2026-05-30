@@ -1,0 +1,16 @@
+# Duda Costa Lima
+
+> Image and style consultancy for clients who want their visual presence to feel precise, personal, and intentional.
+
+Duda Costa Lima offers image consulting, closet editing, styling retainers, and custom sourcing. The site presents her practice, services, contact details, and a consultation request form.
+
+## Key Pages
+
+- [Home](https://dudacostalima.com/): overview, biography, services, and contact.
+- [Contact](https://dudacostalima.com/#contact): consultation request form and email contact.
+
+## Agent Guidance
+
+- Use the contact form to request a consultation when a visitor provides their name, email address, and styling goals.
+- Use the mail link as an alternative contact path when form submission is unavailable.
+- Respect the site's language selector. Content is available in English and Portuguese.

@@ -83,7 +83,7 @@ export function ContactSlice({ primary, lang }: Props) {
       <div className="contact-head">
         <div className="section-label reveal mb-7">◦ {t.label}</div>
         <h2 className="reveal">
-          {t.title_a} <em>{t.title_b}</em>.
+          {t.title_a} <em>{t.title_b}</em>
         </h2>
         <p
           className="reveal"

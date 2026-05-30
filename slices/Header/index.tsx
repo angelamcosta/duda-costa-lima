@@ -22,9 +22,14 @@ export function HeaderSlice({ primary, lang }: Props) {
 
   return (
     <header className="topbar">
-      <a href="#hero" className="mark mono" aria-label="Duda Costa Lima — home">
-        <span className="mark-d">D</span>
-        <span className="mark-l">L</span>
+      <a href="#hero" className="mark mono">
+        <span className="sr-only">Duda Costa Lima home</span>
+        <span className="mark-d" aria-hidden="true">
+          D
+        </span>
+        <span className="mark-l" aria-hidden="true">
+          L
+        </span>
       </a>
       <nav>
         <a href="#about">{t.about}</a>
