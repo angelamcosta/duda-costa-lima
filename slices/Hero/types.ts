@@ -14,6 +14,8 @@ export interface HeroPrimary {
   index_l_pt: string;
   index_r: string;
   hero_keywords?: { word_en: string; word_pt: string }[];
+  rotator_prefix_en?: string;
+  rotator_prefix_pt?: string;
 }
 
 export interface Props {

@@ -10,11 +10,21 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Rotator } from "@/components/Rotator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 
 const MESSAGE_MAX = 600;
 
 export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
+  const formId = useId();
+  const nameId = `${formId}-name`;
+  const emailId = `${formId}-email`;
+  const messageId = `${formId}-message`;
+  const nameErrorId = `${nameId}-error`;
+  const emailErrorId = `${emailId}-error`;
+  const messageErrorId = `${messageId}-error`;
+  const messageCounterId = `${messageId}-counter`;
+  const statusId = `${formId}-status`;
+
   const schema = z.object({
     name: z.string().min(2, t.err_name),
     email: z.string().min(1, t.err_email_required).email(t.err_email_invalid),
@@ -101,7 +111,13 @@ export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
   }
 
   return (
-    <form className="form reveal" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form
+      className="form reveal"
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      toolname="request_style_consultation"
+      tooldescription="Sends a consultation request to Duda Costa Lima with the visitor's name, email address, and styling goals."
+    >
       <div className="contact-prompt" aria-hidden="true">
         <span className="prompt-label mono">{promptLabel}</span>
         <Rotator words={prompts} variant="prompt" />
@@ -113,18 +129,25 @@ export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
         data-magnet
         style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
       >
-        <label>
+        <label htmlFor={nameId}>
           {t.label_name} <span className="req">{t.req}</span>
         </label>
         <input
+          id={nameId}
           type="text"
           placeholder={t.ph_name}
-          autoComplete="off"
+          autoComplete="name"
           spellCheck={false}
+          aria-required="true"
+          aria-invalid={errors.name ? "true" : "false"}
+          aria-describedby={errors.name ? nameErrorId : undefined}
+          toolparamdescription="The visitor's full name."
           {...register("name")}
         />
         {errors.name && (
-          <span className="err mono">✕ {errors.name.message}</span>
+          <span className="err mono" id={nameErrorId}>
+            ✕ {errors.name.message}
+          </span>
         )}
       </div>
 
@@ -134,18 +157,25 @@ export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
         data-magnet
         style={{ "--reveal-delay": "200ms" } as React.CSSProperties}
       >
-        <label>
+        <label htmlFor={emailId}>
           {t.label_email} <span className="req">{t.req}</span>
         </label>
         <input
+          id={emailId}
           type="email"
           placeholder={t.ph_email}
-          autoComplete="off"
+          autoComplete="email"
           spellCheck={false}
+          aria-required="true"
+          aria-invalid={errors.email ? "true" : "false"}
+          aria-describedby={errors.email ? emailErrorId : undefined}
+          toolparamdescription="The visitor's email address for follow-up."
           {...register("email")}
         />
         {errors.email && (
-          <span className="err mono">✕ {errors.email.message}</span>
+          <span className="err mono" id={emailErrorId}>
+            ✕ {errors.email.message}
+          </span>
         )}
       </div>
 
@@ -157,21 +187,36 @@ export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
         data-magnet
         style={{ "--reveal-delay": "320ms" } as React.CSSProperties}
       >
-        <label>
+        <label htmlFor={messageId}>
           {t.label_message} <span className="req">{t.req}</span>
         </label>
         <textarea
+          id={messageId}
           placeholder={t.ph_message}
           rows={4}
           maxLength={MESSAGE_MAX}
+          aria-required="true"
+          aria-invalid={errors.message ? "true" : "false"}
+          aria-describedby={
+            errors.message
+              ? `${messageErrorId} ${messageCounterId}`
+              : messageCounterId
+          }
+          toolparamdescription="The visitor's styling needs, event context, or reason for requesting a consultation."
           {...register("message", {
             onChange: (e) => setMessageLen(e.target.value.length),
           })}
         />
         {errors.message && (
-          <span className="err mono">✕ {errors.message.message}</span>
+          <span className="err mono" id={messageErrorId}>
+            ✕ {errors.message.message}
+          </span>
         )}
-        <div className={`char-counter mono${counterClass}`} aria-live="polite">
+        <div
+          className={`char-counter mono${counterClass}`}
+          id={messageCounterId}
+          aria-live="polite"
+        >
           {messageLen}&nbsp;/&nbsp;{MESSAGE_MAX}
         </div>
       </div>
@@ -181,12 +226,19 @@ export function ContactForm({ t, promptLabel, prompts }: ContactFormProps) {
           type="submit"
           className="submit"
           disabled={!isValid || status === "sending"}
+          aria-describedby={status === "idle" ? undefined : statusId}
         >
           <span>{t.submit}</span>
           <span className="arrow">→</span>
           <span className="under" />
         </button>
-        <div className={`form-status${statusFading ? " fading" : ""}`}>
+        <div
+          className={`form-status${statusFading ? " fading" : ""}`}
+          id={statusId}
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {statusText}
           {status === "sending" && <span className="caret" />}
         </div>

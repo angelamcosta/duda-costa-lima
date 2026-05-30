@@ -50,7 +50,9 @@ export function ContactSlice({ primary, lang }: Props) {
         ? FALLBACK_PROMPTS_EN
         : FALLBACK_PROMPTS_PT;
 
-  const promptLabel = en ? "Try opening with" : "Tente abrir com";
+  const promptLabel =
+    (en ? p.prompt_label_en : p.prompt_label_pt) ||
+    (en ? "Try opening with" : "Tente abrir com");
 
   const t = {
     label: en ? p.label_en : p.label_pt,
@@ -83,7 +85,7 @@ export function ContactSlice({ primary, lang }: Props) {
       <div className="contact-head">
         <div className="section-label reveal mb-7">◦ {t.label}</div>
         <h2 className="reveal">
-          {t.title_a} <em>{t.title_b}</em>.
+          {t.title_a} <em>{t.title_b}</em>
         </h2>
         <p
           className="reveal"

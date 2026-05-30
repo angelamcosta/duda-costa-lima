@@ -10,6 +10,12 @@ export interface AboutPrimary {
   p1_pt: string;
   p2_en: string;
   p2_pt: string;
+  status_label_en?: string;
+  status_label_pt?: string;
+  status_a_en?: string;
+  status_a_pt?: string;
+  status_b_en?: string;
+  status_b_pt?: string;
 }
 
 export interface MetaItem {

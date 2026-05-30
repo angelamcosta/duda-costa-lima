@@ -20,6 +20,12 @@ export interface ServiceItem {
   price_brl: string;
   duration_en: string;
   duration_pt: string;
+  includes_en?: string;
+  includes_pt?: string;
+  leave_en?: string;
+  leave_pt?: string;
+  ideal_en?: string;
+  ideal_pt?: string;
 }
 
 export interface Props {
